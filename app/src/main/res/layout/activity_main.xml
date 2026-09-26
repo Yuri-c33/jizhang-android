@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:id="@+id/contentHost"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/fragmentContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </FrameLayout>
+
+    <com.jizhang.app.ui.glass.GlassBottomBarHost
+        android:id="@+id/glassBottomBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:clipChildren="false" />
+
+    <!--
+        状态栏磨砂遮罩。放在最后 = 层级最上，只盖住状态栏那一条（高度 = 状态栏 + 18dp），
+        不参与测量也不给内容留白，所以不会影响任何页面的排版。
+    -->
+    <com.jizhang.app.ui.glass.GlassStatusBarHost
+        android:id="@+id/glassStatusBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:clipChildren="false" />
+
+</FrameLayout>

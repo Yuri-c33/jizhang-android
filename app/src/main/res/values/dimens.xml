@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 金额键盘面板底部留白；系统栏高度由代码在运行时叠加。 -->
+    <dimen name="keypad_padding_bottom">10dp</dimen>
+</resources>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:alpha="1.0"
+    android:paddingHorizontal="16dp"
+    android:paddingVertical="8dp">
+
+    <TextView
+        android:id="@+id/dateView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.Jizhang.ItemSub"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="03-15" />
+
+    <TextView
+        android:id="@+id/titleView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textAppearance="@style/TextAppearance.Jizhang.ItemTitle"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@id/amountView"
+        app:layout_constraintStart_toEndOf="@id/dateView"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="星巴克" />
+
+    <TextView
+        android:id="@+id/subView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textAppearance="@style/TextAppearance.Jizhang.ItemSub"
+        app:layout_constraintEnd_toStartOf="@id/amountView"
+        app:layout_constraintStart_toEndOf="@id/dateView"
+        app:layout_constraintTop_toBottomOf="@id/titleView"
+        tools:text="餐饮 · 拿铁" />
+
+    <TextView
+        android:id="@+id/amountView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.Jizhang.ItemTitle"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@id/titleView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/titleView"
+        tools:text="-33.00" />
+
+    <TextView
+        android:id="@+id/dupBadge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:background="@drawable/bg_badge"
+        android:paddingHorizontal="6dp"
+        android:paddingVertical="1dp"
+        android:text="@string/import_stat_dup"
+        android:textSize="11sp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@id/amountView"
+        app:layout_constraintTop_toBottomOf="@id/amountView"
+        tools:visibility="visible" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

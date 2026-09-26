@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    功能键背景：MD3 胶囊形容器 + 即时 ripple。
+
+    与数字键使用同样的 2dp 内缩，保证四列键位在视觉上严格对齐；
+    mask 让涟漪被裁剪在胶囊轮廓内，不会溢出到相邻按键。
+-->
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="?attr/colorControlHighlight">
+
+    <item android:id="@android:id/mask">
+        <inset
+            android:insetTop="2dp"
+            android:insetBottom="2dp"
+            android:insetLeft="2dp"
+            android:insetRight="2dp">
+            <shape android:shape="rectangle">
+                <solid android:color="@android:color/white" />
+                <corners android:radius="?attr/jizhangKeyCornerRadius" />
+            </shape>
+        </inset>
+    </item>
+
+    <item>
+        <inset
+            android:insetTop="2dp"
+            android:insetBottom="2dp"
+            android:insetLeft="2dp"
+            android:insetRight="2dp">
+            <shape android:shape="rectangle">
+                <solid android:color="?attr/colorSurfaceContainerLow" />
+                <corners android:radius="?attr/jizhangKeyCornerRadius" />
+            </shape>
+        </inset>
+    </item>
+
+</ripple>

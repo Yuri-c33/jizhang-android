@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/jizhangSettingsPageBackground"
+    android:clipToPadding="false"
+    android:paddingBottom="24dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="?attr/jizhangAppBarPadding"
+            android:paddingTop="20dp"
+            android:paddingBottom="4dp"
+            android:text="@string/settings_title"
+            android:textAppearance="@style/TextAppearance.Jizhang.Title" />
+
+        <!-- 自动记账 -->
+        <TextView
+            style="@style/Widget.Jizhang.SettingsGroupTitle"
+            android:text="@string/settings_group_auto" />
+
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.Jizhang.SettingsCard">
+
+            <LinearLayout
+                android:id="@+id/autoGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/notifListenerRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+
+                <LinearLayout
+                    android:id="@+id/autoConfirmRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+
+                <LinearLayout
+                    android:id="@+id/autoConfidenceRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+
+                <LinearLayout
+                    android:id="@+id/notifAccountRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+
+                <LinearLayout
+                    android:id="@+id/diagnosticsRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- 数据 -->
+        <TextView
+            style="@style/Widget.Jizhang.SettingsGroupTitle"
+            android:text="@string/settings_group_data" />
+
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.Jizhang.SettingsCard">
+
+            <LinearLayout
+                android:id="@+id/dataGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/importRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+
+                <LinearLayout
+                    android:id="@+id/exportRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+
+                <LinearLayout
+                    android:id="@+id/clearRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- 分类与账户 -->
+        <TextView
+            style="@style/Widget.Jizhang.SettingsGroupTitle"
+            android:text="@string/settings_group_category" />
+
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.Jizhang.SettingsCard">
+
+            <LinearLayout
+                android:id="@+id/categoryGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/categoryRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+
+                <LinearLayout
+                    android:id="@+id/accountRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- 外观 -->
+        <TextView
+            style="@style/Widget.Jizhang.SettingsGroupTitle"
+            android:text="@string/settings_group_appearance" />
+
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.Jizhang.SettingsCard">
+
+            <LinearLayout
+                android:id="@+id/appearanceGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/themeRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+
+                <LinearLayout
+                    android:id="@+id/uiStyleRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+
+                <LinearLayout
+                    android:id="@+id/paletteRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+
+                <LinearLayout
+                    android:id="@+id/rememberRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- 关于 -->
+        <TextView
+            style="@style/Widget.Jizhang.SettingsGroupTitle"
+            android:text="@string/settings_group_about" />
+
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.Jizhang.SettingsCard">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingVertical="14dp">
+
+                <TextView
+                    android:id="@+id/versionRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="?attr/jizhangSettingsRowPadding"
+                    android:paddingVertical="4dp"
+                    android:textAppearance="@style/TextAppearance.Jizhang.ItemSub" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="?attr/jizhangSettingsRowPadding"
+                    android:paddingVertical="4dp"
+                    android:text="@string/settings_about_contributors"
+                    android:textAppearance="@style/TextAppearance.Jizhang.ItemSub" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="?attr/jizhangSettingsRowPadding"
+                    android:paddingTop="6dp"
+                    android:text="@string/settings_about_privacy"
+                    android:textAppearance="@style/TextAppearance.Jizhang.ItemSub" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="24dp" />
+
+    </LinearLayout>
+
+</ScrollView>

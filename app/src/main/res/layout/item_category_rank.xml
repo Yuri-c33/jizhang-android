@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingVertical="7dp">
+
+    <View
+        android:id="@+id/colorDot"
+        android:layout_width="10dp"
+        android:layout_height="10dp" />
+
+    <TextView
+        android:id="@+id/nameView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_weight="1"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textSize="14sp"
+        tools:text="餐饮" />
+
+    <TextView
+        android:id="@+id/percentView"
+        android:layout_width="52dp"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:textColor="?attr/colorOnSurfaceVariant"
+        android:textSize="13sp"
+        tools:text="42.5%" />
+
+    <TextView
+        android:id="@+id/amountView"
+        android:layout_width="88dp"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        tools:text="¥546.00" />
+
+</LinearLayout>

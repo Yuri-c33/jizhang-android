@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="cardCornerRadiusStyle" format="dimension" />
+    <attr name="jizhangCardContentPadding" format="dimension" />
+    <attr name="jizhangScreenPadding" format="dimension" />
+    <attr name="jizhangListHorizontalPadding" format="dimension" />
+    <attr name="jizhangListBottomPadding" format="dimension" />
+    <attr name="jizhangSectionSpacing" format="dimension" />
+    <attr name="jizhangCardStrokeWidth" format="dimension" />
+    <attr name="jizhangCardStrokeColor" format="color" />
+    <attr name="jizhangCardBackgroundColor" format="color" />
+    <!-- 明细列表外层容器：经典风格透明（保持原样），MD3 用亮色卡片。 -->
+    <attr name="jizhangListSectionBackground" format="color" />
+    <!-- 明细列表容器内的分割线：经典风格透明，MD3 使用 outlineVariant。 -->
+    <attr name="jizhangListSectionDividerColor" format="color" />
+    <!-- 明细容器圆角：经典 16dp，MD3 用更大的 28dp 分组卡片圆角。 -->
+    <attr name="jizhangListSectionCornerRadius" format="dimension" />
+    <attr name="jizhangRowVerticalPadding" format="dimension" />
+    <attr name="jizhangListRowPadding" format="dimension" />
+    <!--
+        明细里的单笔条子：每笔收入/支出是一张独立的圆角表面，
+        因此需要自己的背景、圆角、描边与列表内边距。
+    -->
+    <attr name="jizhangListItemBackground" format="color" />
+    <attr name="jizhangListItemCornerRadius" format="dimension" />
+    <attr name="jizhangListItemStrokeWidth" format="dimension" />
+    <attr name="jizhangListItemStrokeColor" format="color" />
+    <attr name="jizhangListItemMarginHorizontal" format="dimension" />
+    <attr name="jizhangListItemMarginVertical" format="dimension" />
+    <attr name="jizhangListItemVerticalPadding" format="dimension" />
+    <attr name="jizhangSectionHeaderPaddingTop" format="dimension" />
+    <attr name="jizhangSectionHeaderPaddingBottom" format="dimension" />
+    <attr name="jizhangAppBarPadding" format="dimension" />
+    <!-- 金额键盘按键：经典风格保持原先的透明底 + 10dp，MD3 用填充底 + 18dp。 -->
+    <attr name="jizhangKeyCornerRadius" format="dimension" />
+    <attr name="jizhangKeyBackgroundTint" format="color" />
+    <!-- 键盘面板底色。与按键底色拉开一档，按下时的反馈才明显。 -->
+    <attr name="jizhangKeypadBackground" format="color" />
+    <!-- 月份切换器：经典保持无底色，MD3 使用胶囊形容器。 -->
+    <attr name="jizhangMonthSwitcherBackground" format="reference" />
+    <attr name="jizhangMonthSwitcherPadding" format="dimension" />
+    <!--
+        雅致风格的空状态使用矢量图标而非表情符号。
+        这里不能用自定义 enum 直接填 android:visibility：部分 Android 17 / MIUI
+        解析器会把枚举值当作索引读取而抛 ArrayIndexOutOfBoundsException。
+        保留布尔属性，由页面在创建视图后设置标准 View 可见性。
+    -->
+    <attr name="jizhangEmptyUseIcon" format="boolean" />
+    <!-- 设置页分组卡片：更大的圆角、左右留白，以及卡片之间的间距。 -->
+    <attr name="jizhangSettingsCardCornerRadius" format="dimension" />
+    <attr name="jizhangSettingsCardMarginHorizontal" format="dimension" />
+    <!-- 卡片本身的颜色；经典风格与页面同色，MD3 用更亮的表面色。 -->
+    <attr name="jizhangSettingsCardBackground" format="color" />
+    <!-- 卡片内文字与图标距离卡片边缘的留白。 -->
+    <attr name="jizhangSettingsRowPadding" format="dimension" />
+    <!-- 卡片内的行分割线颜色；透明表示不画分割线。 -->
+    <attr name="jizhangSettingsDividerColor" format="color" />
+    <!-- 设置页页面底色：比卡片更深一档，卡片才会「浮」起来。 -->
+    <attr name="jizhangSettingsPageBackground" format="color" />
+</resources>

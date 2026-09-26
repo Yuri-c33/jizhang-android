@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- MD3 分段按钮文字色：选中用 onSecondaryContainer，未选中用 onSurface。 -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_enabled="false" android:alpha="0.38" android:color="?attr/colorOnSurface" />
+    <item android:state_checked="true" android:color="?attr/colorOnSecondaryContainer" />
+    <item android:color="?attr/colorOnSurface" />
+</selector>

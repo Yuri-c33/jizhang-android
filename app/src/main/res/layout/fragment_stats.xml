@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipToPadding="false"
+    android:paddingBottom="?attr/jizhangListBottomPadding">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!--
+            月份切换（顶栏）。
+
+            高度必须写死 56dp = 内部胶囊 48dp + 上下各 4dp 的 contentPadding。
+            若交给 wrap_content，卡片只会按胶囊的 48dp 测量（contentPadding 不计入
+            高度），于是胶囊底部 4dp 被卡片裁掉（底部圆角变成一条直线），
+            并且紧随其后的汇总卡片会正好贴在卡片下沿（0 间距），
+            看上去就是「顶栏和下面的卡片重叠」。
+
+            卡片两侧只留 jizhangScreenPadding 一层，与下方各张卡片左对齐；
+            旧写法外面还套了一层带 paddingHorizontal 的容器，导致顶栏被二次缩进、
+            与下面的卡片错位。
+        -->
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.Jizhang.Card"
+            android:layout_width="wrap_content"
+            android:layout_height="56dp"
+            android:layout_marginHorizontal="?attr/jizhangScreenPadding"
+            android:layout_marginTop="?attr/jizhangSectionSpacing"
+            app:cardCornerRadius="28dp"
+            app:contentPadding="4dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="?attr/jizhangMonthSwitcherBackground"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="?attr/jizhangMonthSwitcherPadding">
+
+                <ImageButton
+                    android:id="@+id/prevMonth"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="@string/ledger_prev_month"
+                    android:src="@drawable/ic_chevron_left"
+                    app:tint="?attr/colorOnSurfaceVariant" />
+
+                <TextView
+                    android:id="@+id/monthLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minWidth="104dp"
+                    android:gravity="center"
+                    android:textAppearance="@style/TextAppearance.Jizhang.Title"
+                    android:textSize="17sp"
+                    tools:text="2026年9月" />
+
+                <ImageButton
+                    android:id="@+id/nextMonth"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="@string/ledger_next_month"
+                    android:src="@drawable/ic_chevron_right"
+                    app:tint="?attr/colorOnSurfaceVariant" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- 汇总卡片 -->
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.Jizhang.Card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="?attr/jizhangScreenPadding"
+            android:layout_marginTop="?attr/jizhangSectionSpacing">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="12dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/stats_expense"
+                            android:textAppearance="@style/TextAppearance.Jizhang.MetricLabel" />
+
+                            <TextView
+                                android:id="@+id/expenseView"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:autoSizeMaxTextSize="22sp"
+                                android:autoSizeMinTextSize="12sp"
+                                android:autoSizeStepGranularity="1sp"
+                                android:autoSizeTextType="uniform"
+                                android:maxLines="1"
+                                android:textColor="@color/expense"
+                                android:textAppearance="@style/TextAppearance.Jizhang.MetricValue"
+                                android:textSize="24sp"
+                                tools:text="¥1,286.50" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/stats_income"
+                            android:textAppearance="@style/TextAppearance.Jizhang.MetricLabel" />
+
+                            <TextView
+                                android:id="@+id/incomeView"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:autoSizeMaxTextSize="22sp"
+                                android:autoSizeMinTextSize="12sp"
+                                android:autoSizeStepGranularity="1sp"
+                                android:autoSizeTextType="uniform"
+                                android:maxLines="1"
+                                android:textColor="@color/income"
+                                android:textAppearance="@style/TextAppearance.Jizhang.MetricValue"
+                                android:textSize="24sp"
+                                tools:text="¥8,000.00" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="12dp"
+                    android:background="?attr/colorSurfaceVariant" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/stats_balance"
+                            android:textAppearance="@style/TextAppearance.Jizhang.MetricLabel" />
+
+                        <TextView
+                            android:id="@+id/balanceView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:autoSizeMaxTextSize="17sp"
+                            android:autoSizeMinTextSize="11sp"
+                            android:autoSizeStepGranularity="1sp"
+                            android:autoSizeTextType="uniform"
+                            android:maxLines="1"
+                            android:textAppearance="@style/TextAppearance.Jizhang.MetricValue"
+                            android:textSize="17sp"
+                            tools:text="+¥6,713.50" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/stats_avg_per_day"
+                            android:textAppearance="@style/TextAppearance.Jizhang.MetricLabel" />
+
+                        <TextView
+                            android:id="@+id/avgView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:autoSizeMaxTextSize="17sp"
+                            android:autoSizeMinTextSize="11sp"
+                            android:autoSizeStepGranularity="1sp"
+                            android:autoSizeTextType="uniform"
+                            android:maxLines="1"
+                            android:textAppearance="@style/TextAppearance.Jizhang.MetricValue"
+                            android:textSize="17sp"
+                            tools:text="¥41.50" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/stats_count"
+                            android:textAppearance="@style/TextAppearance.Jizhang.MetricLabel" />
+
+                        <TextView
+                            android:id="@+id/countView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:autoSizeMaxTextSize="17sp"
+                            android:autoSizeMinTextSize="11sp"
+                            android:autoSizeStepGranularity="1sp"
+                            android:autoSizeTextType="uniform"
+                            android:maxLines="1"
+                            android:textAppearance="@style/TextAppearance.Jizhang.MetricValue"
+                            android:textSize="17sp"
+                            tools:text="32 笔" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- 支出构成 -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/categoryCard"
+            style="@style/Widget.Jizhang.Card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="?attr/jizhangScreenPadding"
+            android:layout_marginTop="?attr/jizhangSectionSpacing">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/categoryTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/stats_by_category"
+                    android:textAppearance="@style/TextAppearance.Jizhang.ItemTitle" />
+
+                <com.jizhang.app.widget.DonutChartView
+                    android:id="@+id/donut"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="12dp" />
+
+                <LinearLayout
+                    android:id="@+id/rankingBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:orientation="vertical" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- 趋势 -->
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.Jizhang.Card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="?attr/jizhangScreenPadding"
+            android:layout_marginTop="?attr/jizhangSectionSpacing">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/stats_trend"
+                    android:textAppearance="@style/TextAppearance.Jizhang.ItemTitle" />
+
+                <com.jizhang.app.widget.TrendBarChartView
+                    android:id="@+id/trend"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:layout_marginTop="12dp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:layout_width="10dp"
+                        android:layout_height="10dp"
+                        android:layout_gravity="center_vertical"
+                        android:background="@color/expense" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:text="@string/stats_expense"
+                        android:textAppearance="@style/TextAppearance.Jizhang.ItemSub" />
+
+                    <View
+                        android:layout_width="10dp"
+                        android:layout_height="10dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_gravity="center_vertical"
+                        android:background="@color/income" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:text="@string/stats_income"
+                        android:textAppearance="@style/TextAppearance.Jizhang.ItemSub" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- 玻璃底栏是悬浮层，最后一张卡片后留出可滚动安全区，
+             避免柱状图月份标签或图例被底栏压住。 -->
+        <Space
+            android:id="@+id/bottomBarSpacer"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            tools:ignore="SpUsage" />
+
+        <!-- 空状态 -->
+        <LinearLayout
+            android:id="@+id/emptyView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingVertical="60dp"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/emptyIcon"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_nav_stats"
+                android:visibility="gone"
+                app:tint="?attr/colorOnSurfaceVariant" />
+
+            <TextView
+                android:id="@+id/emptyEmoji"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="📊"
+                android:textSize="44sp"
+                android:visibility="visible" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/stats_empty"
+                android:textAppearance="@style/TextAppearance.Jizhang.ItemSub" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

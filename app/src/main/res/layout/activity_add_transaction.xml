@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    记一笔 / 编辑账目。
+
+    自下而上分成四段，层级与 Material 3 一致：
+    1. 金额区：整页视觉焦点，右对齐的大号金额，独立的输入光标。
+    2. 分类网格：容器色面板里的可选分类，选中态用圆形主色底。
+       面板吃掉键盘让出来的高度，默认 18 个分类要刚好排满 4 行半而不被切掉。
+       1 和 2 之间必须留 10dp 页面底色：两块面宽度和圆角都不同，贴在一起会像叠在一起。
+
+    竖向上「省高度」和「留呼吸」是互相拉扯的，改动任一处间距都要同时算另一处。
+    手机竖屏总高固定，所以这 10dp 是**从别处等量换来的**，分类网格的高度不变：
+        卡片内边距 -2dp、网格内边距 -4dp、信息栏上边距 -2dp、键盘上内边距 -2dp。
+    3. 信息栏：日期 / 备注 / 账户以 MD3 chip 形式横向排列。
+    4. 键盘：底部固定、顶部两角圆角，常规键用容器色，主操作键用 primary。
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/colorSurface"
+    android:orientation="vertical">
+
+    <!-- 顶栏：关闭 + 类型分段按钮 + 删除 -->
+    <LinearLayout
+        android:id="@+id/topBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="6dp"
+        android:paddingTop="8dp"
+        android:paddingEnd="6dp">
+
+        <ImageButton
+            android:id="@+id/closeButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/action_close"
+            android:src="@drawable/ic_close"
+            app:tint="?attr/colorOnSurface" />
+
+        <com.google.android.material.button.MaterialButtonToggleGroup
+            android:id="@+id/kindTabs"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:minHeight="40dp"
+            app:checkedButton="@id/kindExpense"
+            app:selectionRequired="true"
+            app:singleSelection="true">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/kindExpense"
+                style="@style/Widget.Jizhang.Segment"
+                android:layout_height="40dp"
+                android:minHeight="40dp"
+                android:text="@string/kind_expense" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/kindIncome"
+                style="@style/Widget.Jizhang.Segment"
+                android:layout_height="40dp"
+                android:minHeight="40dp"
+                android:text="@string/kind_income" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/kindTransfer"
+                style="@style/Widget.Jizhang.Segment"
+                android:layout_height="40dp"
+                android:minHeight="40dp"
+                android:text="@string/kind_transfer" />
+
+        </com.google.android.material.button.MaterialButtonToggleGroup>
+
+        <ImageButton
+            android:id="@+id/deleteButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/action_delete"
+            android:src="@drawable/ic_delete"
+            android:visibility="gone"
+            app:tint="?attr/colorOnSurfaceVariant" />
+
+    </LinearLayout>
+
+    <!--
+        金额区：整页视觉焦点，收进一张 MD3 卡片，和分类面板形成清晰层级。
+
+        marginBottom 10dp 是**必须的**：卡片（16dp 边距、28dp 圆角）和分类面板
+        （12dp 边距、20dp 圆角）是宽度不同的两块圆角面，直接相接时面板顶角的圆角
+        会从卡片底角两侧探出来，看着就像两块面板叠在一起。留出 10dp 的页面底色
+        作为分隔，两块面才各自成立。
+    -->
+    <com.google.android.material.card.MaterialCardView
+        style="@style/Widget.Jizhang.Card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="?attr/jizhangScreenPadding"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="10dp"
+        app:contentPadding="0dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="?attr/jizhangAppBarPadding"
+        android:paddingTop="16dp"
+        android:paddingBottom="12dp">
+
+        <TextView
+            android:id="@+id/amountLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/kind_expense"
+            android:textAppearance="@style/TextAppearance.Jizhang.MetricLabel" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:gravity="center_vertical|end"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingEnd="6dp"
+                android:text="@string/add_amount_symbol"
+                android:textColor="?attr/colorOnSurfaceVariant"
+                android:textSize="26sp"
+                android:textStyle="normal" />
+
+            <TextView
+                android:id="@+id/amountView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ellipsize="start"
+                android:gravity="end"
+                android:maxLines="1"
+                android:textAppearance="@style/TextAppearance.Jizhang.AmountDisplay"
+                app:autoSizeMaxTextSize="48sp"
+                app:autoSizeMinTextSize="24sp"
+                app:autoSizeStepGranularity="2sp"
+                app:autoSizeTextType="uniform"
+                tools:text="0.00" />
+
+            <View
+                android:id="@+id/cursorView"
+                android:layout_width="3dp"
+                android:layout_height="44dp"
+                android:layout_marginStart="6dp"
+                android:background="?attr/colorPrimary" />
+
+        </LinearLayout>
+    </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- 分类区：主体可滚动区域，容器使用 surfaceContainer 与页面底色分层。 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginHorizontal="12dp"
+        android:background="@drawable/bg_category_panel"
+        android:clipToOutline="true"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/categoryEmptyHint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingVertical="24dp"
+            android:text="@string/empty_no_category"
+            android:textAppearance="@style/TextAppearance.Jizhang.ItemSub"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/transferHint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingHorizontal="32dp"
+            android:paddingVertical="24dp"
+            android:text="@string/add_transfer_hint"
+            android:textAppearance="@style/TextAppearance.Jizhang.ItemSub"
+            android:visibility="gone" />
+
+        <!--
+            paddingVertical 从 4dp 收到 2dp：上方新增的 10dp 分隔要从这里补回来一部分，
+            否则 20 个分类排满 5 行时最后一行的文字会被面板底边切掉。
+        -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/categoryGrid"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:clipToPadding="false"
+            android:paddingHorizontal="4dp"
+            android:paddingVertical="2dp" />
+
+    </LinearLayout>
+
+    <!--
+        信息栏：日期 / 备注 / 账户，等宽的 MD3 assist chip。
+
+        上方 12dp、下方 10dp：上方与分类面板、下方与键盘面板都要有明显呼吸。
+        这里从 14dp 收到 12dp，和网格 paddingVertical、键盘 paddingTop 一起
+        补掉金额卡片新增的 10dp 分隔——12dp 仍远大于「看起来贴在一起」的临界值。
+    -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="10dp"
+        android:baselineAligned="false"
+        android:orientation="horizontal"
+        android:paddingHorizontal="12dp">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/dateButton"
+            style="@style/Widget.Jizhang.InfoChip"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:contentDescription="@string/add_label_date"
+            app:icon="@drawable/ic_calendar_today"
+            tools:text="今天" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/noteButton"
+            style="@style/Widget.Jizhang.InfoChip"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:contentDescription="@string/add_label_note"
+            android:text="@string/add_hint_note"
+            app:icon="@drawable/ic_edit" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/accountButton"
+            style="@style/Widget.Jizhang.InfoChip"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:contentDescription="@string/add_label_account"
+            app:icon="@drawable/ic_account_balance_wallet"
+            tools:text="微信零钱" />
+
+    </LinearLayout>
+
+    <!-- 转账时的第二个账户 -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/toAccountButton"
+        style="@style/Widget.Jizhang.InfoChip"
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="14dp"
+        android:layout_marginBottom="6dp"
+        android:gravity="center"
+        android:contentDescription="@string/add_label_to_account"
+        app:icon="@drawable/ic_account_balance_wallet"
+        android:visibility="gone"
+        tools:text="转入：零钱通"
+        tools:visibility="visible" />
+
+    <!--
+        金额键盘：用真正的 4 列网格，保证底行宽键与上面三行共用同一条列边界。
+        内边距收到 4/8/8dp：四行键省下的高度全部让给上方分类面板。
+        paddingTop 从 6dp 收到 4dp，是为了给金额卡片新增的 10dp 分隔腾出额度——
+        手机竖屏高度是固定的，这里多加一点，上面的网格就少一点。
+    -->
+    <GridLayout
+        android:id="@+id/keypadPanel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_keypad_panel"
+        android:columnCount="4"
+        android:paddingHorizontal="8dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="8dp">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/key7"
+            style="@style/Widget.Jizhang.Key.Grid"
+            android:text="7" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/key8"
+            style="@style/Widget.Jizhang.Key.Grid"
+            android:text="8" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/key9"
+            style="@style/Widget.Jizhang.Key.Grid"
+            android:text="9" />
+
+        <FrameLayout
+            android:id="@+id/keyDel"
+            style="@style/Widget.Jizhang.Key.Function.Grid"
+            android:background="@drawable/bg_key_function_ripple"
+            android:clickable="true"
+            android:focusable="true"
+            android:contentDescription="@string/action_delete">
+
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_gravity="center"
+                android:importantForAccessibility="no"
+                android:src="@drawable/ic_backspace"
+                app:tint="?attr/colorOnSurfaceVariant" />
+
+        </FrameLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/key4"
+            style="@style/Widget.Jizhang.Key.Grid"
+            android:text="4" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/key5"
+            style="@style/Widget.Jizhang.Key.Grid"
+            android:text="5" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/key6"
+            style="@style/Widget.Jizhang.Key.Grid"
+            android:text="6" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/keyClear"
+            style="@style/Widget.Jizhang.Key.Function.Grid"
+            android:text="@string/action_reset" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/key1"
+            style="@style/Widget.Jizhang.Key.Grid"
+            android:text="1" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/key2"
+            style="@style/Widget.Jizhang.Key.Grid"
+            android:text="2" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/key3"
+            style="@style/Widget.Jizhang.Key.Grid"
+            android:text="3" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/keyDate"
+            style="@style/Widget.Jizhang.Key.Function.Grid"
+            android:text="今天" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/key0"
+            style="@style/Widget.Jizhang.Key.Grid.Wide"
+            android:text="0" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/keyDot"
+            style="@style/Widget.Jizhang.Key.Grid"
+            android:text="." />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/keySave"
+            style="@style/Widget.Jizhang.Key.Primary.Grid"
+            android:text="@string/action_save" />
+
+    </GridLayout>
+
+</LinearLayout>

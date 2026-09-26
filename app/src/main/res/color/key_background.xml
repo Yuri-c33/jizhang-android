@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    键盘按键底色。
+
+    按下态只做很轻的一级容器色提升，真实的水波纹由 MaterialButton 自带
+    ripple 绘制。这样按下时反馈即时、松手立刻消失，不会留下「粘住」的色块。
+-->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true" android:color="?attr/colorSurfaceContainerHigh" />
+    <item android:state_focused="true" android:color="?attr/colorSurfaceContainerHigh" />
+    <item android:color="?attr/jizhangKeyBackgroundTint" />
+</selector>

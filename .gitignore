@@ -1,0 +1,31 @@
+# ---- 签名与本地环境（绝不入库）----
+# 签名私钥与密码：一旦公开，任何人都能签出冒充本应用的安装包。
+keystore/
+keystore.properties
+local.properties
+
+# ---- Gradle / 构建产物 ----
+.gradle/
+.kotlin/
+build/
+app/build/
+captures/
+*.apk
+*.aab
+*.ap_
+*.dex
+
+# ---- IDE ----
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+
+# ---- 系统 ----
+.DS_Store
+Thumbs.db
+*.log
+
+# ---- 本地调试用的截图/临时目录 ----
+/work/

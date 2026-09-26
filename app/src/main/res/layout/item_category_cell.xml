@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cellRoot"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/selectableItemBackground"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:paddingVertical="10dp">
+
+    <ImageView
+        android:id="@+id/emojiView"
+        android:layout_width="46dp"
+        android:layout_height="46dp"
+        android:background="@drawable/bg_circle_subtle"
+        android:contentDescription="@null"
+        android:padding="12dp"
+        android:src="@drawable/ic_category_default"
+        tools:src="@drawable/ic_category_food" />
+
+    <TextView
+        android:id="@+id/nameView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textSize="12sp"
+        tools:text="餐饮" />
+
+</LinearLayout>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    功能键（退格 / 清空 / 今天）底色。
+
+    与数字键区分：功能键默认用更浅的一级容器色，按下时提升到下一级，
+    状态切换立刻生效，不叠加缩放动画。
+-->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true" android:color="?attr/colorSurfaceContainerHighest" />
+    <item android:state_focused="true" android:color="?attr/colorSurfaceContainerHighest" />
+    <item android:color="?attr/colorSurfaceContainerLow" />
+</selector>

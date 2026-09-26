@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application
+        android:name=".JizhangApp"
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Jizhang">
+
+        <activity
+            android:name=".ui.MainActivity"
+            android:exported="true"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".ui.OnboardingActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity
+            android:name=".ui.AddTransactionActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity
+            android:name=".ui.CategoryManageActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".ui.AccountManageActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".ui.DiagnosticActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".ui.importbill.ImportActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!--
+            通知监听服务。用于自动识别微信付款/收款通知。
+            需要用户在系统「通知使用权」页面手动授权。
+
+            exported 必须保持 true（v1.5 曾按文档示例改成 false，v1.6 起改回 true）。
+            为什么改回：
+              · 系统（system_server）确实绑得上非 exported 的组件 ——
+                ActivityManagerService.checkComponentPermission() 对 SYSTEM_UID 直接放行，
+                早于 exported 检查。所以"系统绑不上"这个担心不是真问题。
+              · 但**「通知使用权」设置页是普通应用 uid**，它按 intent 解析的方式枚举
+                NotificationListenerService；非 exported 的组件在跨 uid 的 intent 解析里
+                是可能被过滤掉的。一旦被过滤，用户在这个页面里就**看不到本应用**，
+                授权开关无从打开 —— 而本应用的核心功能完全依赖这个授权。
+              · 这是"零收益的规范化"：exported=true 并不会降低安全性，因为下面
+                android:permission 上的 BIND_NOTIFICATION_LISTENER_SERVICE 是
+                signature|privileged 级权限，只有系统持有，别的应用根本绑不上。
+            结论：核心功能不该为一个纯风格问题承担风险，保持 true。
+        -->
+        <service
+            android:name=".notify.WeChatNotificationListener"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
+            <intent-filter>
+                <action android:name="android.service.notification.NotificationListenerService" />
+            </intent-filter>
+        </service>
+
+    </application>
+
+</manifest>

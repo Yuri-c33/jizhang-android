@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="brand_primary">#FF7ED8C0</color>
+    <color name="brand_primary_container">#FF0F4C40</color>
+    <color name="brand_on_primary_container">#FFC8EADF</color>
+    <color name="brand_secondary">#FFB6CCC5</color>
+
+    <color name="surface">#FF101413</color>
+    <color name="on_surface">#FFE1E3E1</color>
+    <color name="surface_variant">#FF3F4945</color>
+    <color name="on_surface_variant">#FFBFC9C4</color>
+
+    <color name="expense">#FFFFB4AB</color>
+    <color name="income">#FF7BDF9B</color>
+    <color name="transfer">#FFA8C7FA</color>
+
+    <!-- 深色下的图表配色：整体调亮以保持对比度 -->
+    <color name="chart_1">#FFD0BCFF</color>
+    <color name="chart_2">#FFEFB8C8</color>
+    <color name="chart_3">#FFA1D98A</color>
+    <color name="chart_4">#FFA8C7FA</color>
+    <color name="chart_5">#FFFFB4AB</color>
+    <color name="chart_6">#FF80D4D8</color>
+    <color name="chart_7">#FFFFB59B</color>
+
+    <!-- MD3 风格深色：Material 3 Baseline 暗色板 -->
+    <color name="elegant_surface">#FF141218</color>
+    <color name="elegant_surface_container_low">#FF1D1B20</color>
+    <color name="elegant_surface_container">#FF211F26</color>
+    <color name="elegant_surface_container_high">#FF2B2930</color>
+    <color name="elegant_surface_container_highest">#FF36343B</color>
+    <color name="elegant_on_surface">#FFE6E0E9</color>
+    <color name="elegant_on_surface_variant">#FFCAC4D0</color>
+    <color name="elegant_outline">#FF938F99</color>
+    <color name="elegant_outline_variant">#FF49454F</color>
+    <color name="elegant_primary">#FFD0BCFF</color>
+    <color name="elegant_primary_container">#FF4F378B</color>
+    <color name="elegant_on_primary_container">#FFEADDFF</color>
+    <color name="elegant_secondary">#FFCCC2DC</color>
+    <color name="elegant_on_primary">#FF381E72</color>
+    <color name="elegant_on_secondary">#FF332D41</color>
+    <color name="elegant_secondary_container">#FF4A4458</color>
+    <color name="elegant_on_secondary_container">#FFE8DEF8</color>
+    <color name="elegant_inverse_surface">#FFE6E0E9</color>
+    <color name="elegant_inverse_on_surface">#FF322F35</color>
+    <color name="ic_launcher_background">#FFE5E7F5</color>
+</resources>

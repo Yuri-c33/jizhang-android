@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- 顶部：月份切换 + 搜索/筛选，MD3 下统一收进一张工具栏卡片。 -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/toolbarCard"
+        style="@style/Widget.Jizhang.Card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="?attr/jizhangScreenPadding"
+        android:layout_marginTop="?attr/jizhangSectionSpacing"
+        app:contentPadding="4dp">
+
+        <LinearLayout
+            android:id="@+id/toolbarRow"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="?attr/jizhangMonthSwitcherBackground"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="?attr/jizhangMonthSwitcherPadding">
+
+                <ImageButton
+                    android:id="@+id/prevMonth"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="@string/ledger_prev_month"
+                    android:src="@drawable/ic_chevron_left"
+                    app:tint="?attr/colorOnSurfaceVariant" />
+
+                <TextView
+                    android:id="@+id/monthLabel"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textAppearance="@style/TextAppearance.Jizhang.Title"
+                    android:textSize="17sp"
+                    tools:text="2026年9月" />
+
+                <ImageButton
+                    android:id="@+id/nextMonth"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="@string/ledger_next_month"
+                    android:src="@drawable/ic_chevron_right"
+                    app:tint="?attr/colorOnSurfaceVariant" />
+
+            </LinearLayout>
+
+            <ImageButton
+                android:id="@+id/searchButton"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/action_search"
+                android:src="@drawable/ic_search"
+                app:tint="?attr/colorOnSurfaceVariant" />
+
+            <ImageButton
+                android:id="@+id/filterButton"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/action_filter"
+                android:src="@drawable/ic_filter"
+                app:tint="?attr/colorOnSurfaceVariant" />
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- 搜索输入框（默认隐藏） -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/searchBox"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="4dp"
+        android:hint="@string/ledger_search_hint"
+        android:visibility="gone"
+        app:endIconMode="clear_text"
+        app:startIconDrawable="@drawable/ic_search">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/searchInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:imeOptions="actionSearch"
+            android:inputType="text"
+            android:maxLines="1" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- 筛选生效提示 -->
+    <LinearLayout
+        android:id="@+id/filterBanner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/bg_chip"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="12dp"
+        android:paddingVertical="8dp"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/filterText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAppearance="@style/TextAppearance.Jizhang.ItemSub"
+            tools:text="筛选：支出 · 餐饮" />
+
+        <TextView
+            android:id="@+id/filterClear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="2dp"
+            android:text="@string/action_clear"
+            android:textColor="?attr/colorPrimary"
+            android:textSize="13sp" />
+
+    </LinearLayout>
+
+    <!-- 月度汇总卡片 -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/summaryCard"
+        style="@style/Widget.Jizhang.Card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="?attr/jizhangScreenPadding"
+        android:layout_marginTop="?attr/jizhangSectionSpacing">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="12dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ledger_month_expense"
+                    android:textAppearance="@style/TextAppearance.Jizhang.MetricLabel" />
+
+                <TextView
+                    android:id="@+id/expenseSum"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:autoSizeMaxTextSize="19sp"
+                    android:autoSizeMinTextSize="12sp"
+                    android:autoSizeStepGranularity="1sp"
+                    android:autoSizeTextType="uniform"
+                    android:maxLines="1"
+                    android:textColor="@color/expense"
+                    android:textAppearance="@style/TextAppearance.Jizhang.MetricValue"
+                    android:textSize="19sp"
+                    tools:text="¥1,286.50" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="12dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ledger_month_income"
+                    android:textAppearance="@style/TextAppearance.Jizhang.MetricLabel" />
+
+                <TextView
+                    android:id="@+id/incomeSum"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:autoSizeMaxTextSize="19sp"
+                    android:autoSizeMinTextSize="12sp"
+                    android:autoSizeStepGranularity="1sp"
+                    android:autoSizeTextType="uniform"
+                    android:maxLines="1"
+                    android:textColor="@color/income"
+                    android:textAppearance="@style/TextAppearance.Jizhang.MetricValue"
+                    android:textSize="19sp"
+                    tools:text="¥8,000.00" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ledger_month_balance"
+                    android:textAppearance="@style/TextAppearance.Jizhang.MetricLabel" />
+
+                <TextView
+                    android:id="@+id/balanceSum"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:autoSizeMaxTextSize="19sp"
+                    android:autoSizeMinTextSize="12sp"
+                    android:autoSizeStepGranularity="1sp"
+                    android:autoSizeTextType="uniform"
+                    android:maxLines="1"
+                    android:textAppearance="@style/TextAppearance.Jizhang.MetricValue"
+                    android:textSize="19sp"
+                    tools:text="¥6,713.50" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <!--
+        明细容器：MD3 里是一张白底大圆角卡片，经典风格下背景透明、
+        完全保持原来的列表观感。笔数标题放在卡片头部，不再直接贴页面底色。
+    -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/listSection"
+        style="@style/Widget.Jizhang.Card"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="?attr/jizhangScreenPadding"
+        android:layout_marginTop="?attr/jizhangSectionSpacing"
+        android:layout_marginBottom="?attr/jizhangSectionSpacing"
+        android:layout_weight="1"
+        app:cardBackgroundColor="?attr/jizhangListSectionBackground"
+        app:cardCornerRadius="?attr/jizhangListSectionCornerRadius"
+        app:contentPadding="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/countLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="?attr/jizhangListRowPadding"
+                android:paddingTop="16dp"
+                android:paddingBottom="6dp"
+                android:textAppearance="@style/TextAppearance.Jizhang.SectionHeader"
+                tools:text="本月共 32 笔" />
+
+            <View
+                android:id="@+id/countDivider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginHorizontal="?attr/jizhangListRowPadding"
+                android:background="?attr/jizhangListSectionDividerColor" />
+
+            <!-- 列表 / 空状态 -->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                    android:id="@+id/swipeRefresh"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/list"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:clipToPadding="false"
+                        android:paddingBottom="?attr/jizhangListBottomPadding"
+                        tools:listitem="@layout/item_transaction" />
+
+                </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+                <com.google.android.material.progressindicator.CircularProgressIndicator
+                    android:id="@+id/loadingView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:indeterminate="true"
+                    android:visibility="gone"
+                    app:indicatorColor="?attr/colorPrimary"
+                    app:trackColor="?attr/colorSurfaceContainerHighest"
+                    tools:visibility="visible" />
+
+                <LinearLayout
+                    android:id="@+id/emptyView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="40dp"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:id="@+id/emptyIcon"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:contentDescription="@null"
+                        android:padding="10dp"
+                        android:background="@drawable/bg_category_icon"
+                        android:src="@drawable/ic_nav_ledger"
+                        android:visibility="gone"
+                        app:tint="?attr/colorOnSurfaceVariant" />
+
+                    <TextView
+                        android:id="@+id/emptyEmoji"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="📖"
+                        android:textSize="48sp"
+                        android:visibility="visible" />
+
+                    <TextView
+                        android:id="@+id/emptyTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:gravity="center"
+                        android:text="@string/ledger_empty"
+                        android:textAppearance="@style/TextAppearance.Jizhang.ItemTitle"
+                        android:textColor="?attr/colorOnSurface" />
+
+                    <TextView
+                        android:id="@+id/emptyHint"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:gravity="center"
+                        android:text="@string/ledger_empty_hint"
+                        android:textAppearance="@style/TextAppearance.Jizhang.ItemSub" />
+
+                </LinearLayout>
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</LinearLayout>

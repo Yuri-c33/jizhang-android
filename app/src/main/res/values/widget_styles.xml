@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--
+        金额键盘按键。
+
+        按下反馈走 MD3 原生方案：state overlay 加深容器色 + ripple。
+        不再使用 stateListAnimator 的缩放，缩放会让 MaterialButton 在
+        连按时产生「黏住手指」的迟滞感。
+
+        键高 50dp（原 56dp）：四行共省下 24dp，让上方分类面板多显示一行，
+        键盘整体也不再顶得太高。可见键面 = 50 - 2×2 inset = 46dp，仍在舒适区。
+    -->
+    <style name="Widget.Jizhang.Key" parent="Widget.Material3.Button.TextButton">
+        <item name="android:layout_height">50dp</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textColor">@color/key_text</item>
+        <!-- 键与键之间留 4dp 间隙，圆形/胶囊轮廓才清晰，不会连成一片灰。 -->
+        <item name="android:insetTop">2dp</item>
+        <item name="android:insetBottom">2dp</item>
+        <item name="android:insetLeft">2dp</item>
+        <item name="android:insetRight">2dp</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="cornerRadius">?attr/jizhangKeyCornerRadius</item>
+        <!-- MD3 按压反馈就是这一层半透明状态层：颜色带 alpha，按下立刻出现、
+             松手立刻消失，不做任何缩放或长动画，因此不会「粘手」。 -->
+        <item name="backgroundTint">@color/key_background</item>
+        <item name="android:stateListAnimator">@null</item>
+        <item name="rippleColor">?attr/colorControlHighlight</item>
+    </style>
+
+    <!-- 0 键：Google 计算器里的宽键，横跨两列 -->
+    <style name="Widget.Jizhang.Key.Wide">
+        <item name="android:layout_weight">2</item>
+    </style>
+
+    <!--
+        GridLayout 版本的数字键。
+        GridLayout 的列宽由 layout_columnWeight 分配，不能继续依赖 LinearLayout
+        的 layout_weight（那会让四行各自计算，底行宽键与上面三列对不齐）。
+    -->
+    <style name="Widget.Jizhang.Key.Grid" parent="@style/Widget.Jizhang.Key">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:layout_weight">0</item>
+        <item name="android:layout_columnWeight">1</item>
+        <item name="android:layout_gravity">fill</item>
+    </style>
+
+    <!-- 0 键：横跨两列，列宽仍与上面四列共用同一套网格边界。 -->
+    <style name="Widget.Jizhang.Key.Grid.Wide" parent="@style/Widget.Jizhang.Key.Grid">
+        <item name="android:layout_columnSpan">2</item>
+    </style>
+
+    <!-- 键盘功能键（日期/账户/退格） -->
+    <style name="Widget.Jizhang.Key.Function">
+        <item name="android:layout_height">50dp</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:minHeight">0dp</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">?attr/colorOnSurfaceVariant</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:insetTop">2dp</item>
+        <item name="android:insetBottom">2dp</item>
+        <item name="android:insetLeft">2dp</item>
+        <item name="android:insetRight">2dp</item>
+        <item name="android:paddingLeft">0dp</item>
+        <item name="android:paddingRight">0dp</item>
+        <item name="android:paddingStart">0dp</item>
+        <item name="android:paddingEnd">0dp</item>
+        <item name="backgroundTint">@color/key_function_background</item>
+        <item name="rippleColor">?attr/colorControlHighlight</item>
+    </style>
+
+    <style name="Widget.Jizhang.Key.Function.Grid" parent="@style/Widget.Jizhang.Key.Function">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:layout_weight">0</item>
+        <item name="android:layout_columnWeight">1</item>
+        <item name="android:layout_gravity">fill</item>
+    </style>
+
+    <!-- 键盘主操作键（完成） -->
+    <style name="Widget.Jizhang.Key.Primary" parent="Widget.Material3.Button">
+        <item name="android:layout_height">50dp</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:minHeight">0dp</item>
+        <item name="android:padding">0dp</item>
+        <item name="android:paddingLeft">0dp</item>
+        <item name="android:paddingRight">0dp</item>
+        <item name="android:paddingStart">0dp</item>
+        <item name="android:paddingEnd">0dp</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:insetTop">2dp</item>
+        <item name="android:insetBottom">2dp</item>
+        <item name="android:insetLeft">2dp</item>
+        <item name="android:insetRight">2dp</item>
+        <item name="cornerRadius">?attr/jizhangKeyCornerRadius</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:stateListAnimator">@null</item>
+        <item name="backgroundTint">@color/key_primary_background</item>
+        <item name="android:textColor">@color/key_primary_text</item>
+    </style>
+
+    <style name="Widget.Jizhang.Key.Primary.Grid" parent="@style/Widget.Jizhang.Key.Primary">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:layout_weight">0</item>
+        <item name="android:layout_columnWeight">1</item>
+        <item name="android:layout_gravity">fill</item>
+    </style>
+
+    <!-- 分类网格项 -->
+    <style name="Widget.Jizhang.CategoryCell" parent="">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <!--
+        记一笔页面的类型切换：Material 3 的分段按钮。
+        未选中描边、选中填充 secondaryContainer，是 MD3 segmented button 的标准表现。
+    -->
+    <!--
+        Material 3 Button 默认 minHeight 为 48dp，放不进 40dp 高的分段容器，
+        MaterialButtonToggleGroup 会把选中项单独撑高，看起来「选中的比别的大」。
+        这里锁死几何尺寸与内边距，让三块始终保持一致。
+    -->
+    <style name="Widget.Jizhang.Segment" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:minHeight">0dp</item>
+        <item name="android:maxHeight">40dp</item>
+        <item name="android:paddingLeft">0dp</item>
+        <item name="android:paddingRight">0dp</item>
+        <item name="android:paddingStart">0dp</item>
+        <item name="android:paddingEnd">0dp</item>
+        <item name="android:paddingTop">0dp</item>
+        <item name="android:paddingBottom">0dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:insetLeft">0dp</item>
+        <item name="android:insetRight">0dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textColor">@color/segment_text</item>
+        <item name="backgroundTint">@color/segment_background</item>
+        <item name="strokeColor">@color/segment_stroke</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="cornerRadius">20dp</item>
+        <item name="android:stateListAnimator">@null</item>
+        <item name="rippleColor">?attr/colorControlHighlight</item>
+    </style>
+
+    <!-- 记一笔页面的信息 chip：日期 / 备注 / 账户 -->
+    <style name="Widget.Jizhang.InfoChip" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">36dp</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:paddingHorizontal">12dp</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:textColor">?attr/colorOnSurfaceVariant</item>
+        <item name="cornerRadius">18dp</item>
+        <item name="strokeColor">?attr/colorOutlineVariant</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="iconSize">16dp</item>
+        <item name="iconTint">?attr/colorOnSurfaceVariant</item>
+        <item name="iconPadding">5dp</item>
+        <item name="android:stateListAnimator">@null</item>
+    </style>
+
+    <!-- 记录页顶部的圆形图标按钮：MD3 标准的 48dp 触达区 + 透明底 -->
+    <style name="Widget.Jizhang.TopIconButton" parent="">
+        <item name="android:layout_width">48dp</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
+    </style>
+
+</resources>

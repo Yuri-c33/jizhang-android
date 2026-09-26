@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.Jizhang" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/brand_primary</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimaryContainer">@color/brand_primary_container</item>
+        <item name="colorOnPrimaryContainer">@color/brand_on_primary_container</item>
+        <item name="colorSecondary">@color/brand_secondary</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <item name="colorSurface">@color/surface</item>
+        <item name="colorOnSurface">@color/on_surface</item>
+        <item name="colorSurfaceVariant">@color/surface_variant</item>
+        <item name="colorOnSurfaceVariant">@color/on_surface_variant</item>
+        <item name="colorError">@color/expense</item>
+        <item name="android:statusBarColor">?attr/colorSurface</item>
+        <!--
+          手势导航（小白条）规范：
+          1) 导航栏底色必须是透明的，内容才能画到系统栏底下（边到边）；
+          2) enforceNavigationBarContrast 默认是 true（API 29 起）—— 它的作用是
+             「当导航栏透明时，由系统补一层深色蒙版保证对比度」。那层蒙版就是
+             用户看到的「黑边」：小白条被压在一块深色条上，看着像贴在内容外面。
+             关掉它，小白条才是真正浮在我们自己的玻璃之上。
+          3) 玻璃是浅色的，所以浅色主题下必须把导航栏图标/小白条切成深色
+             （windowLightNavigationBar），否则系统画的白条会看不见。
+        -->
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:enforceNavigationBarContrast">false</item>
+        <item name="android:windowLightNavigationBar">?attr/isLightTheme</item>
+        <item name="android:windowBackground">?attr/colorSurface</item>
+        <item name="cardCornerRadiusStyle">28dp</item>
+        <item name="jizhangCardContentPadding">16dp</item>
+        <item name="jizhangScreenPadding">16dp</item>
+        <item name="jizhangListHorizontalPadding">12dp</item>
+        <item name="jizhangListBottomPadding">24dp</item>
+        <item name="jizhangSectionSpacing">12dp</item>
+        <item name="jizhangCardStrokeWidth">0dp</item>
+        <item name="jizhangCardStrokeColor">@android:color/transparent</item>
+        <item name="jizhangCardBackgroundColor">?attr/colorSurfaceContainerLowest</item>
+        <item name="jizhangListSectionBackground">?attr/colorSurfaceContainerLowest</item>
+        <item name="jizhangListSectionDividerColor">?attr/colorOutlineVariant</item>
+        <item name="jizhangListSectionCornerRadius">28dp</item>
+        <item name="jizhangRowVerticalPadding">12dp</item>
+        <item name="jizhangListRowPadding">16dp</item>
+        <item name="jizhangListItemBackground">?attr/colorSurfaceContainerLowest</item>
+        <item name="jizhangListItemCornerRadius">20dp</item>
+        <item name="jizhangListItemStrokeWidth">0dp</item>
+        <item name="jizhangListItemStrokeColor">@android:color/transparent</item>
+        <item name="jizhangListItemMarginHorizontal">8dp</item>
+        <item name="jizhangListItemMarginVertical">3dp</item>
+        <item name="jizhangListItemVerticalPadding">12dp</item>
+        <item name="jizhangSectionHeaderPaddingTop">14dp</item>
+        <item name="jizhangSectionHeaderPaddingBottom">6dp</item>
+        <item name="jizhangAppBarPadding">20dp</item>
+        <item name="jizhangEmptyUseIcon">false</item>
+    </style>
+
+    <style name="Theme.Jizhang.Splash" parent="Theme.Jizhang" />
+</resources>

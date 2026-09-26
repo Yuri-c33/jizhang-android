@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    键盘面板底图。
+
+    顶部两角给 24dp 圆角（与上方分类面板 20dp 同一套圆角语言，键盘块更大所以略大），
+    底部保持直角——面板一直铺到屏幕底边（手势条之下），圆底角没有视觉意义。
+    原来的实现直接用颜色做 background，四个角全是尖角，是「键盘边框不够圆润」的来源。
+-->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="?attr/jizhangKeypadBackground" />
+    <corners
+        android:bottomLeftRadius="0dp"
+        android:bottomRightRadius="0dp"
+        android:topLeftRadius="24dp"
+        android:topRightRadius="24dp" />
+</shape>

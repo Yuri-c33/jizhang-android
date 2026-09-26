@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">记账本</string>
+
+    <!-- 底部导航 -->
+    <string name="tab_ledger">明细</string>
+    <string name="tab_stats">统计</string>
+    <string name="tab_pending">待确认</string>
+    <string name="tab_settings">设置</string>
+
+    <!-- 通用操作 -->
+    <string name="action_add">记一笔</string>
+    <string name="action_save">保存</string>
+    <string name="action_cancel">取消</string>
+    <string name="action_confirm">确定</string>
+    <string name="action_delete">删除</string>
+    <string name="action_edit">编辑</string>
+    <string name="action_done">完成</string>
+    <string name="action_ignore">忽略</string>
+    <string name="action_ignore_all">全部忽略</string>
+    <string name="action_confirm_all">全部确认</string>
+    <string name="action_delete_all">全部删除</string>
+    <string name="action_search">搜索</string>
+    <string name="action_filter">筛选</string>
+    <string name="action_clear">清除</string>
+    <string name="action_reset">重置</string>
+    <string name="action_back">返回</string>
+    <string name="action_close">关闭</string>
+    <string name="action_import">导入</string>
+    <string name="action_export">导出</string>
+    <string name="action_apply">应用</string>
+
+    <!-- 记账类型 -->
+    <string name="kind_expense">支出</string>
+    <string name="kind_income">收入</string>
+    <string name="kind_transfer">转账</string>
+
+    <!-- 记一笔 -->
+    <string name="add_title_edit">编辑账目</string>
+    <string name="add_hint_amount">0.00</string>
+    <string name="add_label_category">分类</string>
+    <string name="add_label_account">账户</string>
+    <string name="add_label_to_account">转入账户</string>
+    <string name="add_label_date">日期</string>
+    <string name="add_label_note">备注</string>
+    <string name="add_hint_note">点击填写备注…</string>
+    <string name="add_amount_symbol">¥</string>
+    <string name="add_pick_category">请选择分类</string>
+    <string name="add_pick_account">请选择账户</string>
+    <string name="add_pick_to_account">请选择转入账户</string>
+    <string name="add_need_amount">请输入金额</string>
+    <string name="add_need_category">请选择分类</string>
+    <string name="add_need_account">请选择账户</string>
+    <string name="add_need_to_account">请选择转入账户</string>
+    <string name="add_same_account">转出与转入账户不能相同</string>
+    <string name="add_category_removed">原分类已被删除，请重新选择分类</string>
+    <string name="add_account_removed">原账户已被删除，请重新选择账户</string>
+    <string name="add_transaction_removed">这条账目已被删除</string>
+    <string name="add_saved">已保存</string>
+    <string name="add_deleted">已删除</string>
+    <string name="add_delete_confirm">确定删除这条账目吗？</string>
+    <string name="add_manage_category">管理分类</string>
+    <string name="add_manage_account">管理账户</string>
+    <string name="add_transfer_hint">转账不需要分类，请在下方确认转出与转入账户。</string>
+    <string name="add_more_options">更多</string>
+
+    <!-- 明细 -->
+    <string name="ledger_title">明细</string>
+    <string name="ledger_empty">本月还没有记录</string>
+    <string name="ledger_empty_hint">点右下角 + 记第一笔，或在设置里导入微信账单</string>
+    <string name="ledger_no_result">没有符合条件的记录</string>
+    <string name="ledger_no_result_hint">试着调整筛选条件或关键词</string>
+    <string name="ledger_month_expense">支出</string>
+    <string name="ledger_month_income">收入</string>
+    <string name="ledger_month_balance">结余</string>
+    <string name="ledger_count_format">本月共 %1$d 笔</string>
+    <string name="ledger_filter_title">筛选</string>
+    <string name="ledger_filter_kind">类型</string>
+    <string name="ledger_filter_category">分类</string>
+    <string name="ledger_filter_account">账户</string>
+    <string name="ledger_search_hint">搜索对方/商品/备注</string>
+    <string name="ledger_prev_month">上一月</string>
+    <string name="ledger_next_month">下一月</string>
+
+    <!-- 统计 -->
+    <string name="stats_title">统计</string>
+    <string name="stats_empty">本月暂无数据</string>
+    <string name="stats_expense">支出</string>
+    <string name="stats_income">收入</string>
+    <string name="stats_balance">结余</string>
+    <string name="stats_avg_per_day">日均支出</string>
+    <string name="stats_count">笔数</string>
+    <string name="stats_by_category">支出构成</string>
+    <string name="stats_by_category_income">收入构成</string>
+    <string name="stats_ranking">排行榜</string>
+    <string name="stats_trend">近 6 个月趋势</string>
+    <string name="stats_other_category">其他</string>
+    <string name="stats_percent_format">%1$s%%</string>
+    <string name="stats_count_format">%1$d 笔</string>
+
+    <!-- 待确认 -->
+    <string name="pending_title">待确认</string>
+    <string name="pending_empty">没有待确认的记录</string>
+    <string name="pending_empty_hint">开启通知监听后，微信付款/收款、聊天里的转账与红包都会出现在这里</string>
+    <string name="pending_raw_label">原始通知</string>
+    <string name="pending_parsed_label">识别结果</string>
+    <string name="pending_confidence">置信度：%1$s</string>
+    <string name="pending_rule">规则：%1$s</string>
+    <string name="pending_no_rule">未匹配到规则</string>
+    <string name="pending_confirm_hint">确认后写入账目，并记住「%1$s」→「%2$s」的对应关系</string>
+    <string name="pending_confirmed">已入账</string>
+    <string name="pending_ignored">已忽略</string>
+    <string name="pending_already_resolved">这条记录已经处理过了</string>
+    <string name="pending_duplicate">该笔账目已存在，未重复写入</string>
+    <string name="pending_action_failed">处理失败，请稍后重试</string>
+    <string name="pending_confirm_invalid">记录信息不完整，请补全后再确认</string>
+    <string name="pending_need_second_account">还需要一个不同的转入账户</string>
+    <string name="pending_bulk_result">已入账 %1$d 笔，%2$d 笔未处理</string>
+    <string name="pending_need_amount">这笔没识别出金额，请先填写</string>
+    <string name="pending_confirmed_count">已确认 %1$d 笔</string>
+    <string name="pending_confirm_all_question">确认入账 %1$d 条高置信度记录？</string>
+    <string name="pending_stat_pending">待确认</string>
+    <string name="pending_stat_low">需手动</string>
+
+    <!-- 通知诊断 -->
+    <string name="diag_title">通知诊断</string>
+    <string name="diag_empty">还没有捕获到任何微信通知</string>
+    <string name="diag_empty_hint">若已开启监听仍无记录，请确认微信通知未被关闭，且未设置「不显示消息详情」</string>
+    <string name="diag_recognized">已识别</string>
+    <string name="diag_unrecognized">未识别</string>
+    <string name="diag_copy">复制</string>
+    <string name="diag_copied">已复制到剪贴板</string>
+    <string name="diag_clear_question">清空全部通知日志？</string>
+    <string name="diag_hint">识别不准时，可在这里复制原始通知内容反馈</string>
+
+    <!-- 设置 -->
+    <string name="settings_title">设置</string>
+    <string name="settings_group_auto">自动记账</string>
+    <string name="settings_group_data">数据</string>
+    <string name="settings_group_category">分类与账户</string>
+    <string name="settings_group_appearance">外观</string>
+    <string name="settings_group_about">关于</string>
+
+    <string name="settings_notif_listener">通知监听服务</string>
+    <string name="settings_notif_listener_on">已开启</string>
+    <string name="settings_notif_listener_off">未开启</string>
+    <string name="settings_notif_listener_desc">开启后可自动识别微信付款/收款，以及聊天里的转账与红包</string>
+    <string name="settings_notif_grant">去授权</string>
+    <string name="settings_notif_howto">如何开启</string>
+    <string name="settings_auto_confirm">自动入账</string>
+    <string name="settings_auto_confirm_desc">关闭时识别结果先进「待确认」由你审核</string>
+    <string name="settings_auto_confidence">自动入账的最低置信度</string>
+    <string name="settings_notif_account">自动记账的默认账户</string>
+    <string name="settings_diagnostics">通知诊断</string>
+    <string name="settings_diagnostics_desc">查看最近的原始通知，排查识别问题</string>
+
+    <string name="settings_import">导入微信账单</string>
+    <string name="settings_import_desc">支持微信导出的加密 ZIP 或 CSV 文件</string>
+    <string name="settings_export">导出备份</string>
+    <string name="settings_export_desc">导出全部账目为 CSV，便于存档或换机</string>
+    <string name="settings_exported">已导出到 %1$s</string>
+    <string name="settings_export_failed">导出失败：%1$s</string>
+    <string name="settings_export_empty">还没有可导出的账目</string>
+    <string name="settings_category_manage">分类管理</string>
+    <string name="settings_account_manage">账户管理</string>
+    <string name="settings_clear_data">清空所有账目</string>
+    <string name="settings_clear_data_desc">恢复出厂：清空全部数据、规则与设置</string>
+    <string name="settings_clear_confirm">此操作会删除全部数据，且无法撤销。确定要继续吗？</string>
+    <string name="settings_reset_title">确认恢复出厂设置</string>
+    <string name="settings_reset_confirm">以下内容都会被删除：</string>
+    <string name="settings_reset_item_tx">全部账目记录</string>
+    <string name="settings_reset_item_pending">全部待确认记录</string>
+    <string name="settings_reset_item_logs">全部通知日志</string>
+    <string name="settings_reset_item_rules">关键词学习规则</string>
+    <string name="settings_reset_item_settings">分类、账户与全部应用设置</string>
+    <string name="settings_reset_action">恢复出厂</string>
+    <string name="settings_cleared">已清空</string>
+
+    <string name="settings_theme">主题</string>
+    <string name="settings_ui_style">界面风格</string>
+    <string name="settings_ui_style_desc">经典保留原外观，MD3 使用谷歌 Material 3 排版</string>
+    <string name="settings_palette">配色方案</string>
+    <string name="settings_palette_desc">仅 MD3 风格可用，切换后立即生效</string>
+    <string name="settings_remember">记住上次选择</string>
+    <string name="settings_remember_desc">记账时自动沿用上次的分类和账户</string>
+
+    <string name="settings_version">版本</string>
+    <string name="settings_about_contributors">贡献者：Kayeung, Jerry, DeepSeek</string>
+    <string name="settings_about_privacy">本应用完全离线运行，不申请网络权限，数据只保存在本机。</string>
+
+    <!-- 导入账单 -->
+    <string name="import_title">导入微信账单</string>
+    <string name="import_pick_file">选择账单文件</string>
+    <string name="import_help">在微信中：我 → 服务 → 钱包 → 账单 → 常见问题 → 下载账单 → 用于个人对账，导出后选择「用其他应用打开」即可回到这里。文件是加密 ZIP，解压码在微信发给你的邮件里。</string>
+    <string name="import_password_title">输入解压码</string>
+    <string name="import_password_hint">6 位数字解压码</string>
+    <string name="import_password_wrong">解压码不对，请检查微信邮件中的 6 位数字</string>
+    <string name="import_reading">正在解析…</string>
+    <string name="import_no_file">未选择文件</string>
+    <string name="import_unsupported">不支持的文件类型：%1$s</string>
+    <string name="import_parse_failed">解析失败：%1$s</string>
+    <string name="import_bad_format">无法识别这个账单文件，可能不是微信导出的格式</string>
+    <string name="import_map_columns">列映射</string>
+    <string name="import_map_columns_hint">未能自动识别表头，请手动指定各列：</string>
+    <string name="import_col_time">交易时间</string>
+    <string name="import_col_amount">金额</string>
+    <string name="import_col_kind">收/支</string>
+    <string name="import_col_counterparty">交易对方</string>
+    <string name="import_col_item">商品</string>
+    <string name="import_col_status">当前状态</string>
+    <string name="import_col_none">不使用</string>
+
+    <string name="import_preview_title">导入预览</string>
+    <string name="import_stat_total">共解析</string>
+    <string name="import_stat_new">新增</string>
+    <string name="import_stat_dup">重复跳过</string>
+    <string name="import_stat_skipped">无法识别</string>
+    <string name="import_unit_count">%1$d 条</string>
+    <string name="import_range">时间范围：%1$s ~ %2$s</string>
+    <string name="import_confirm_button">导入 %1$d 条</string>
+    <string name="import_done">导入完成：新增 %1$d 条，跳过重复 %2$d 条</string>
+    <string name="import_nothing_new">没有新记录可导入</string>
+    <string name="import_preview_empty">这个文件里没有可导入的记录</string>
+    <string name="import_dup_notice">灰色条目为已存在的重复记录</string>
+
+    <!-- 分类管理 -->
+    <string name="category_title">分类管理</string>
+    <string name="category_expense">支出分类</string>
+    <string name="category_income">收入分类</string>
+    <string name="category_add">新建分类</string>
+    <string name="category_name">分类名称</string>
+    <string name="category_name_hint">例如：宠物</string>
+    <string name="category_emoji">图标</string>
+    <string name="category_emoji_hint">从下面选一个</string>
+    <string name="category_delete_confirm">删除分类「%1$s」？如果仍被账目、规则或待确认记录引用，将不会删除。</string>
+    <string name="category_need_name">请输入分类名称</string>
+    <string name="category_name_exists">已存在同名分类</string>
+    <string name="category_builtin_locked">内置分类不能删除，可以改名或换图标</string>
+    <string name="category_delete_referenced">该分类仍被 %1$d 处记录引用，请先处理引用关系</string>
+    <string name="category_deleted">分类已删除</string>
+    <string name="category_saved">已保存</string>
+
+    <!-- 账户管理 -->
+    <string name="account_title">账户管理</string>
+    <string name="account_add">新建账户</string>
+    <string name="account_name">账户名称</string>
+    <string name="account_name_hint">例如：招商银行</string>
+    <string name="account_type">账户类型</string>
+    <string name="account_initial">初始余额</string>
+    <string name="account_initial_hint">0.00</string>
+    <string name="account_initial_desc">填写当前余额，之后按流水自动累计</string>
+    <string name="account_balance">余额</string>
+    <string name="account_need_name">请输入账户名称</string>
+    <string name="account_delete_confirm">删除账户「%1$s」？如果仍被账目、待确认记录或默认账户引用，将不会删除。</string>
+    <string name="account_builtin_locked">内置账户不能删除，可以改名或调整初始余额</string>
+    <string name="account_delete_referenced">该账户仍被 %1$d 处记录引用，请先处理引用关系</string>
+    <string name="account_deleted">账户已删除</string>
+    <string name="account_balance_total">账户总览</string>
+    <string name="account_net_worth">净资产</string>
+    <string name="account_owed">欠款</string>
+    <string name="account_saved">已保存</string>
+
+    <!-- 引导页 -->
+    <string name="onboarding_welcome">欢迎使用记账本</string>
+    <string name="onboarding_subtitle">自动识别微信账单，帮你省去手动记账</string>
+    <string name="onboarding_step1_title">1. 开启通知监听</string>
+    <string name="onboarding_step1_desc">用于自动识别微信付款、收款，以及聊天里的转账和红包。系统会跳转到「通知使用权」页面，找到「记账本」并打开开关。</string>
+    <string name="onboarding_step2_title">2. 导入历史账单</string>
+    <string name="onboarding_step2_desc">从微信导出账单文件后导入，过去的流水一次性补全。</string>
+    <string name="onboarding_step3_title">3. 开始记账</string>
+    <string name="onboarding_step3_desc">随时手动记一笔，识别结果可以在「待确认」里审核。</string>
+    <string name="onboarding_notif_warning">注意：微信里必须开启通知，且不要设置「不显示消息详情」，否则通知里读不到金额，就无法自动识别。</string>
+    <string name="onboarding_start">开始使用</string>
+    <string name="onboarding_skip">暂时跳过</string>
+    <string name="onboarding_notif_enabled">已开启通知监听</string>
+    <string name="onboarding_notif_not_enabled">未开启</string>
+    <string name="onboarding_grant_now">立即授权</string>
+
+    <!-- 空状态 -->
+    <string name="empty_no_category">还没有分类</string>
+    <string name="empty_no_account">还没有账户</string>
+    <string name="delete_not_found">记录已不存在</string>
+</resources>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/selectableItemBackground"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/rowContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:minHeight="64dp"
+        android:orientation="horizontal"
+        android:paddingHorizontal="?attr/jizhangSettingsRowPadding"
+        android:paddingVertical="?attr/jizhangRowVerticalPadding">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/titleView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.Jizhang.SettingTitle"
+                tools:text="通知监听服务" />
+
+            <TextView
+                android:id="@+id/descView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:textAppearance="@style/TextAppearance.Jizhang.ItemSub"
+                android:visibility="gone"
+                tools:text="开启后可自动识别微信付款/收款通知"
+                tools:visibility="visible" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/valueView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:textAppearance="@style/TextAppearance.Jizhang.ItemSub"
+            android:visibility="gone"
+            tools:text="已开启"
+            tools:visibility="visible" />
+
+        <com.google.android.material.materialswitch.MaterialSwitch
+            android:id="@+id/switchView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/chevronView"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="8dp"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_chevron_right"
+            android:visibility="gone"
+            app:tint="?attr/colorOnSurfaceVariant"
+            tools:visibility="visible" />
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/dividerView"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginStart="?attr/jizhangSettingsRowPadding"
+        android:layout_marginEnd="?attr/jizhangSettingsRowPadding"
+        android:background="?attr/jizhangSettingsDividerColor"
+        android:visibility="gone" />
+
+</LinearLayout>

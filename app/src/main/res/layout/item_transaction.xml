@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    单笔账目条子：每笔收入/支出占一条独立的圆角表面。
+    所有描述信息合并进 titleView，强制单行并省略，避免明细页出现多行文字。
+-->
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="?attr/jizhangListItemMarginHorizontal"
+    android:layout_marginTop="?attr/jizhangListItemMarginVertical"
+    android:layout_marginBottom="?attr/jizhangListItemMarginVertical"
+    android:clickable="true"
+    android:focusable="true"
+    app:cardBackgroundColor="?attr/jizhangListItemBackground"
+    app:cardCornerRadius="?attr/jizhangListItemCornerRadius"
+    app:cardElevation="0dp"
+    app:cardPreventCornerOverlap="false"
+    app:cardUseCompatPadding="false"
+    app:rippleColor="?attr/colorControlHighlight"
+    app:strokeColor="?attr/jizhangListItemStrokeColor"
+    app:strokeWidth="?attr/jizhangListItemStrokeWidth">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="60dp"
+        android:paddingHorizontal="?attr/jizhangListRowPadding"
+        android:paddingVertical="?attr/jizhangListItemVerticalPadding">
+
+        <ImageView
+            android:id="@+id/emojiView"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/bg_category_icon"
+            android:contentDescription="@null"
+            android:padding="9dp"
+            android:src="@drawable/ic_category_default"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="?attr/colorOnSurfaceVariant" />
+
+        <!-- 标题 + 分类/账户/时间/来源合并为一行，超长尾部省略。 -->
+        <TextView
+            android:id="@+id/titleView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:textAppearance="@style/TextAppearance.Jizhang.ItemTitle"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/amountView"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toEndOf="@id/emojiView"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="美团 · 餐饮 · 微信零钱 · 14:32" />
+
+        <TextView
+            android:id="@+id/amountView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:autoSizeMaxTextSize="17sp"
+            android:autoSizeMinTextSize="13sp"
+            android:autoSizeStepGranularity="1sp"
+            android:autoSizeTextType="uniform"
+            android:gravity="end"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:textAppearance="@style/TextAppearance.Jizhang.ItemTitle"
+            android:textSize="17sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_min="72dp"
+            app:layout_constraintWidth_percent="0.34"
+            tools:text="-25.00" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

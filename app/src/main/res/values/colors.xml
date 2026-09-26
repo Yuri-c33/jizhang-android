@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="white">#FFFFFFFF</color>
+    <color name="black">#FF000000</color>
+
+    <!-- 经典风格：保持原有品牌绿，仅作为老用户可选项 -->
+    <color name="brand_primary">#FF2E7D6B</color>
+    <color name="brand_primary_container">#FFC8EADF</color>
+    <color name="brand_on_primary_container">#FF06342B</color>
+    <color name="brand_secondary">#FF51625D</color>
+
+    <color name="surface">#FFFAFDFB</color>
+    <color name="on_surface">#FF191C1B</color>
+    <color name="surface_variant">#FFDCE5E0</color>
+    <color name="on_surface_variant">#FF404944</color>
+
+    <color name="expense">#FFB3261E</color>
+    <color name="income">#FF146C2E</color>
+    <color name="transfer">#FF0B57D0</color>
+
+    <color name="ic_launcher_background">#FFE5E7F5</color>
+
+    <!-- 图表配色（环形图按顺序循环使用） -->
+    <color name="chart_1">#FF6750A4</color>
+    <color name="chart_2">#FF7D5260</color>
+    <color name="chart_3">#FF386A20</color>
+    <color name="chart_4">#FF0B57D0</color>
+    <color name="chart_5">#FFB3261E</color>
+    <color name="chart_6">#FF00696D</color>
+    <color name="chart_7">#FF8F4C38</color>
+
+    <!-- MD3 风格：Material 3 Baseline 色板（紫 + 中性表面） -->
+    <color name="elegant_surface">#FFFEF7FF</color>
+    <color name="elegant_surface_container_low">#FFF7F2FA</color>
+    <color name="elegant_surface_container">#FFF3EDF7</color>
+    <color name="elegant_surface_container_high">#FFECE6F0</color>
+    <color name="elegant_surface_container_highest">#FFE6E0E9</color>
+    <color name="elegant_on_surface">#FF1D1B20</color>
+    <color name="elegant_on_surface_variant">#FF49454F</color>
+    <color name="elegant_outline">#FF79747E</color>
+    <color name="elegant_outline_variant">#FFCAC4D0</color>
+    <color name="elegant_primary">#FF6750A4</color>
+    <color name="elegant_primary_container">#FFEADDFF</color>
+    <color name="elegant_on_primary_container">#FF21005D</color>
+    <color name="elegant_secondary">#FF625B71</color>
+    <color name="elegant_on_primary">#FFFFFFFF</color>
+    <color name="elegant_on_secondary">#FFFFFFFF</color>
+    <color name="elegant_secondary_container">#FFE8DEF8</color>
+    <color name="elegant_on_secondary_container">#FF1D192B</color>
+    <color name="elegant_inverse_surface">#FF322F35</color>
+    <color name="elegant_inverse_on_surface">#FFF5EFF7</color>
+</resources>

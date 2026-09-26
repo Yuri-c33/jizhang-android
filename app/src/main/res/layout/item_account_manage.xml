@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingHorizontal="?attr/jizhangListRowPadding"
+    android:paddingVertical="?attr/jizhangRowVerticalPadding">
+
+    <TextView
+        android:id="@+id/initialView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minWidth="28dp"
+        android:textAppearance="@style/TextAppearance.Jizhang.ItemTitle"
+        android:textColor="?attr/colorOnSurfaceVariant"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="微" />
+
+    <TextView
+        android:id="@+id/nameView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textAppearance="@style/TextAppearance.Jizhang.ItemTitle"
+        app:layout_constraintEnd_toStartOf="@id/balanceView"
+        app:layout_constraintStart_toEndOf="@id/initialView"
+        app:layout_constraintTop_toTopOf="@id/initialView"
+        tools:text="微信零钱" />
+
+    <TextView
+        android:id="@+id/typeView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="2dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textAppearance="@style/TextAppearance.Jizhang.ItemSub"
+        app:layout_constraintEnd_toStartOf="@id/balanceView"
+        app:layout_constraintStart_toEndOf="@id/initialView"
+        app:layout_constraintTop_toBottomOf="@id/nameView"
+        tools:text="微信零钱" />
+
+    <TextView
+        android:id="@+id/balanceView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:textAppearance="@style/TextAppearance.Jizhang.ItemTitle"
+        app:layout_constraintBottom_toBottomOf="@id/nameView"
+        app:layout_constraintEnd_toStartOf="@id/editButton"
+        app:layout_constraintTop_toTopOf="@id/nameView"
+        tools:text="¥1,234.00" />
+
+    <ImageButton
+        android:id="@+id/editButton"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/action_edit"
+        android:src="@drawable/ic_edit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/deleteButton"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="?attr/colorOnSurfaceVariant" />
+
+    <ImageButton
+        android:id="@+id/deleteButton"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/action_delete"
+        android:src="@drawable/ic_delete"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="?attr/colorOnSurfaceVariant" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

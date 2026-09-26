@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    MD3 分段按钮描边：未选中与选中都用 outline。
+
+    选中态原先用 secondaryContainer（= 填充色）作描边色，等于把描边藏进填充里，
+    于是整条外框会在选中段断开——顶栏看上去就是「已选中的栏目分界线缺失」。
+    改回 colorOutline：外框与两处分隔线连成同一条 1dp 线，选中只靠填充色区分。
+-->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_enabled="false" android:alpha="0.12" android:color="?attr/colorOnSurface" />
+    <item android:color="?attr/colorOutline" />
+</selector>

@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="ThemeOverlay.Jizhang.Classic" parent="">
+        <item name="cardCornerRadiusStyle">16dp</item>
+        <item name="jizhangCardContentPadding">16dp</item>
+        <item name="jizhangScreenPadding">16dp</item>
+        <item name="jizhangListHorizontalPadding">12dp</item>
+        <item name="jizhangListBottomPadding">24dp</item>
+        <item name="jizhangSectionSpacing">12dp</item>
+        <item name="jizhangCardStrokeWidth">0dp</item>
+        <item name="jizhangCardStrokeColor">@android:color/transparent</item>
+        <item name="jizhangCardBackgroundColor">?attr/colorSurfaceContainerLow</item>
+        <item name="jizhangListSectionBackground">?attr/colorSurfaceContainerLow</item>
+        <item name="jizhangListSectionDividerColor">@android:color/transparent</item>
+        <item name="jizhangListSectionCornerRadius">16dp</item>
+        <!-- 经典风格保持原来的分隔行观感：无条子底色、无圆角、无额外边距。 -->
+        <item name="jizhangListItemBackground">@android:color/transparent</item>
+        <item name="jizhangListItemCornerRadius">0dp</item>
+        <item name="jizhangListItemStrokeWidth">0dp</item>
+        <item name="jizhangListItemStrokeColor">@android:color/transparent</item>
+        <item name="jizhangListItemMarginHorizontal">0dp</item>
+        <item name="jizhangListItemMarginVertical">0dp</item>
+        <item name="jizhangListItemVerticalPadding">12dp</item>
+        <item name="jizhangRowVerticalPadding">12dp</item>
+        <item name="jizhangListRowPadding">16dp</item>
+        <item name="jizhangSectionHeaderPaddingTop">14dp</item>
+        <item name="jizhangSectionHeaderPaddingBottom">6dp</item>
+        <item name="jizhangAppBarPadding">20dp</item>
+        <item name="jizhangEmptyUseIcon">false</item>
+        <item name="jizhangKeyCornerRadius">10dp</item>
+        <item name="jizhangKeyBackgroundTint">?attr/colorSurfaceContainerLowest</item>
+        <item name="jizhangKeypadBackground">?attr/colorSurfaceContainer</item>
+        <item name="jizhangMonthSwitcherBackground">@drawable/bg_month_switcher_classic</item>
+        <item name="jizhangMonthSwitcherPadding">0dp</item>
+        <!-- 经典风格的设置页保持原样：无卡片、无分割线。 -->
+        <item name="jizhangSettingsCardCornerRadius">16dp</item>
+        <item name="jizhangSettingsCardMarginHorizontal">0dp</item>
+        <item name="jizhangSettingsCardBackground">?attr/colorSurface</item>
+        <item name="jizhangSettingsRowPadding">?attr/jizhangAppBarPadding</item>
+        <item name="jizhangSettingsDividerColor">@android:color/transparent</item>
+        <item name="jizhangSettingsPageBackground">?attr/colorSurface</item>
+    </style>
+
+    <!--
+        MD3 风格：只负责形状、间距与排版这类「结构」覆盖。
+        具体颜色由 ThemeOverlay.Jizhang.Palette.* 提供，用户可在设置里切换配色。
+        两层叠加的顺序是：结构层 → 配色层，因此这里不写任何颜色项。
+    -->
+    <style name="ThemeOverlay.Jizhang.Elegant" parent="">
+        <item name="cardCornerRadiusStyle">28dp</item>
+        <item name="jizhangCardContentPadding">16dp</item>
+        <item name="jizhangScreenPadding">12dp</item>
+        <item name="jizhangListHorizontalPadding">12dp</item>
+        <item name="jizhangListBottomPadding">20dp</item>
+        <item name="jizhangSectionSpacing">16dp</item>
+        <item name="jizhangCardStrokeWidth">1dp</item>
+        <item name="jizhangCardStrokeColor">?attr/colorOutlineVariant</item>
+        <!-- MD3：页面用 surface，分组卡片用最亮的 surfaceContainerLowest，
+             形成 Google 设置页那种「米色/浅灰页面 + 白色圆角卡片」的层次。 -->
+        <item name="jizhangCardBackgroundColor">?attr/colorSurfaceContainerLowest</item>
+        <item name="jizhangListSectionBackground">?attr/colorSurfaceContainerLowest</item>
+        <item name="jizhangListSectionDividerColor">?attr/colorOutlineVariant</item>
+        <item name="jizhangListSectionCornerRadius">28dp</item>
+        <!-- MD3：每笔账是列表里独立浮起的圆角条子。 -->
+        <item name="jizhangListItemBackground">?attr/colorSurfaceContainerLow</item>
+        <item name="jizhangListItemCornerRadius">20dp</item>
+        <item name="jizhangListItemStrokeWidth">0dp</item>
+        <item name="jizhangListItemStrokeColor">@android:color/transparent</item>
+        <item name="jizhangListItemMarginHorizontal">8dp</item>
+        <item name="jizhangListItemMarginVertical">4dp</item>
+        <item name="jizhangListItemVerticalPadding">14dp</item>
+        <item name="jizhangRowVerticalPadding">14dp</item>
+        <item name="jizhangListRowPadding">16dp</item>
+        <item name="jizhangSectionHeaderPaddingTop">24dp</item>
+        <item name="jizhangSectionHeaderPaddingBottom">10dp</item>
+        <item name="jizhangAppBarPadding">24dp</item>
+        <item name="jizhangEmptyUseIcon">true</item>
+        <!-- 胶囊形按键：宽大于高时接近 Google 计算器的圆形键观感。 -->
+        <item name="jizhangKeyCornerRadius">28dp</item>
+        <!-- 键盘面板用一档灰，按键用亮表面色，两者拉开层次；按下由 MD3 状态层变深。 -->
+        <item name="jizhangKeyBackgroundTint">?attr/colorSurfaceContainerHighest</item>
+        <item name="jizhangKeypadBackground">?attr/colorSurfaceContainer</item>
+        <item name="jizhangMonthSwitcherBackground">@drawable/bg_month_switcher_md3</item>
+        <item name="jizhangMonthSwitcherPadding">4dp</item>
+        <!-- 设置页卡片：白/近白卡片浮在页面底色之上 -->
+        <item name="jizhangSettingsCardCornerRadius">28dp</item>
+        <item name="jizhangSettingsCardMarginHorizontal">12dp</item>
+        <item name="jizhangSettingsCardBackground">?attr/colorSurfaceContainerLowest</item>
+        <item name="jizhangSettingsRowPadding">20dp</item>
+        <item name="jizhangSettingsDividerColor">?attr/colorOutlineVariant</item>
+        <item name="jizhangSettingsPageBackground">?attr/colorSurface</item>
+    </style>
+
+    <!-- ============ MD3 配色方案（浅色 / 深色由 values-night 提供） ============ -->
+
+    <style name="ThemeOverlay.Jizhang.Palette.Purple" parent="">
+        <item name="colorPrimary">@color/pal_purple_primary</item>
+        <item name="colorOnPrimary">@color/pal_purple_on_primary</item>
+        <item name="colorPrimaryContainer">@color/pal_purple_primary_container</item>
+        <item name="colorOnPrimaryContainer">@color/pal_purple_on_primary_container</item>
+        <item name="colorSecondary">@color/pal_purple_secondary</item>
+        <item name="colorOnSecondary">@color/pal_purple_on_secondary</item>
+        <item name="colorSecondaryContainer">@color/pal_purple_secondary_container</item>
+        <item name="colorOnSecondaryContainer">@color/pal_purple_on_secondary_container</item>
+        <item name="colorSurface">@color/pal_purple_surface</item>
+        <item name="colorOnSurface">@color/pal_purple_on_surface</item>
+        <item name="colorSurfaceVariant">@color/pal_purple_surface_variant</item>
+        <item name="colorOnSurfaceVariant">@color/pal_purple_on_surface_variant</item>
+        <item name="colorSurfaceContainerLowest">@color/pal_purple_surface_lowest</item>
+        <item name="colorSurfaceContainerLow">@color/pal_purple_surface_low</item>
+        <item name="colorSurfaceContainer">@color/pal_purple_surface_container</item>
+        <item name="colorSurfaceContainerHigh">@color/pal_purple_surface_high</item>
+        <item name="colorSurfaceContainerHighest">@color/pal_purple_surface_highest</item>
+        <item name="colorSurfaceDim">@color/pal_purple_surface_dim</item>
+        <item name="colorSurfaceBright">@color/pal_purple_surface_bright</item>
+        <item name="colorOutline">@color/pal_purple_outline</item>
+        <item name="colorOutlineVariant">@color/pal_purple_outline_variant</item>
+        <item name="colorSurfaceInverse">@color/pal_purple_inverse_surface</item>
+        <item name="colorOnSurfaceInverse">@color/pal_purple_inverse_on_surface</item>
+        <item name="colorControlHighlight">@color/pal_purple_ripple</item>
+        <item name="colorError">@color/expense</item>
+        <item name="android:colorBackground">@color/pal_purple_surface</item>
+        <item name="android:statusBarColor">@color/pal_purple_surface</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">?attr/isLightTheme</item>
+    </style>
+
+    <style name="ThemeOverlay.Jizhang.Palette.Sand" parent="">
+        <item name="colorPrimary">@color/pal_sand_primary</item>
+        <item name="colorOnPrimary">@color/pal_sand_on_primary</item>
+        <item name="colorPrimaryContainer">@color/pal_sand_primary_container</item>
+        <item name="colorOnPrimaryContainer">@color/pal_sand_on_primary_container</item>
+        <item name="colorSecondary">@color/pal_sand_secondary</item>
+        <item name="colorOnSecondary">@color/pal_sand_on_secondary</item>
+        <item name="colorSecondaryContainer">@color/pal_sand_secondary_container</item>
+        <item name="colorOnSecondaryContainer">@color/pal_sand_on_secondary_container</item>
+        <item name="colorSurface">@color/pal_sand_surface</item>
+        <item name="colorOnSurface">@color/pal_sand_on_surface</item>
+        <item name="colorSurfaceVariant">@color/pal_sand_surface_variant</item>
+        <item name="colorOnSurfaceVariant">@color/pal_sand_on_surface_variant</item>
+        <item name="colorSurfaceContainerLowest">@color/pal_sand_surface_lowest</item>
+        <item name="colorSurfaceContainerLow">@color/pal_sand_surface_low</item>
+        <item name="colorSurfaceContainer">@color/pal_sand_surface_container</item>
+        <item name="colorSurfaceContainerHigh">@color/pal_sand_surface_high</item>
+        <item name="colorSurfaceContainerHighest">@color/pal_sand_surface_highest</item>
+        <item name="colorSurfaceDim">@color/pal_sand_surface_dim</item>
+        <item name="colorSurfaceBright">@color/pal_sand_surface_bright</item>
+        <item name="colorOutline">@color/pal_sand_outline</item>
+        <item name="colorOutlineVariant">@color/pal_sand_outline_variant</item>
+        <item name="colorSurfaceInverse">@color/pal_sand_inverse_surface</item>
+        <item name="colorOnSurfaceInverse">@color/pal_sand_inverse_on_surface</item>
+        <item name="colorControlHighlight">@color/pal_sand_ripple</item>
+        <item name="colorError">@color/expense</item>
+        <item name="android:colorBackground">@color/pal_sand_surface</item>
+        <item name="android:statusBarColor">@color/pal_sand_surface</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">?attr/isLightTheme</item>
+    </style>
+
+    <style name="ThemeOverlay.Jizhang.Palette.Blue" parent="">
+        <item name="colorPrimary">@color/pal_blue_primary</item>
+        <item name="colorOnPrimary">@color/pal_blue_on_primary</item>
+        <item name="colorPrimaryContainer">@color/pal_blue_primary_container</item>
+        <item name="colorOnPrimaryContainer">@color/pal_blue_on_primary_container</item>
+        <item name="colorSecondary">@color/pal_blue_secondary</item>
+        <item name="colorOnSecondary">@color/pal_blue_on_secondary</item>
+        <item name="colorSecondaryContainer">@color/pal_blue_secondary_container</item>
+        <item name="colorOnSecondaryContainer">@color/pal_blue_on_secondary_container</item>
+        <item name="colorSurface">@color/pal_blue_surface</item>
+        <item name="colorOnSurface">@color/pal_blue_on_surface</item>
+        <item name="colorSurfaceVariant">@color/pal_blue_surface_variant</item>
+        <item name="colorOnSurfaceVariant">@color/pal_blue_on_surface_variant</item>
+        <item name="colorSurfaceContainerLowest">@color/pal_blue_surface_lowest</item>
+        <item name="colorSurfaceContainerLow">@color/pal_blue_surface_low</item>
+        <item name="colorSurfaceContainer">@color/pal_blue_surface_container</item>
+        <item name="colorSurfaceContainerHigh">@color/pal_blue_surface_high</item>
+        <item name="colorSurfaceContainerHighest">@color/pal_blue_surface_highest</item>
+        <item name="colorSurfaceDim">@color/pal_blue_surface_dim</item>
+        <item name="colorSurfaceBright">@color/pal_blue_surface_bright</item>
+        <item name="colorOutline">@color/pal_blue_outline</item>
+        <item name="colorOutlineVariant">@color/pal_blue_outline_variant</item>
+        <item name="colorSurfaceInverse">@color/pal_blue_inverse_surface</item>
+        <item name="colorOnSurfaceInverse">@color/pal_blue_inverse_on_surface</item>
+        <item name="colorControlHighlight">@color/pal_blue_ripple</item>
+        <item name="colorError">@color/expense</item>
+        <item name="android:colorBackground">@color/pal_blue_surface</item>
+        <item name="android:statusBarColor">@color/pal_blue_surface</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">?attr/isLightTheme</item>
+    </style>
+
+    <style name="ThemeOverlay.Jizhang.Palette.Green" parent="">
+        <item name="colorPrimary">@color/pal_green_primary</item>
+        <item name="colorOnPrimary">@color/pal_green_on_primary</item>
+        <item name="colorPrimaryContainer">@color/pal_green_primary_container</item>
+        <item name="colorOnPrimaryContainer">@color/pal_green_on_primary_container</item>
+        <item name="colorSecondary">@color/pal_green_secondary</item>
+        <item name="colorOnSecondary">@color/pal_green_on_secondary</item>
+        <item name="colorSecondaryContainer">@color/pal_green_secondary_container</item>
+        <item name="colorOnSecondaryContainer">@color/pal_green_on_secondary_container</item>
+        <item name="colorSurface">@color/pal_green_surface</item>
+        <item name="colorOnSurface">@color/pal_green_on_surface</item>
+        <item name="colorSurfaceVariant">@color/pal_green_surface_variant</item>
+        <item name="colorOnSurfaceVariant">@color/pal_green_on_surface_variant</item>
+        <item name="colorSurfaceContainerLowest">@color/pal_green_surface_lowest</item>
+        <item name="colorSurfaceContainerLow">@color/pal_green_surface_low</item>
+        <item name="colorSurfaceContainer">@color/pal_green_surface_container</item>
+        <item name="colorSurfaceContainerHigh">@color/pal_green_surface_high</item>
+        <item name="colorSurfaceContainerHighest">@color/pal_green_surface_highest</item>
+        <item name="colorSurfaceDim">@color/pal_green_surface_dim</item>
+        <item name="colorSurfaceBright">@color/pal_green_surface_bright</item>
+        <item name="colorOutline">@color/pal_green_outline</item>
+        <item name="colorOutlineVariant">@color/pal_green_outline_variant</item>
+        <item name="colorSurfaceInverse">@color/pal_green_inverse_surface</item>
+        <item name="colorOnSurfaceInverse">@color/pal_green_inverse_on_surface</item>
+        <item name="colorControlHighlight">@color/pal_green_ripple</item>
+        <item name="colorError">@color/expense</item>
+        <item name="android:colorBackground">@color/pal_green_surface</item>
+        <item name="android:statusBarColor">@color/pal_green_surface</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">?attr/isLightTheme</item>
+    </style>
+
+    <style name="ThemeOverlay.Jizhang.Palette.Rose" parent="">
+        <item name="colorPrimary">@color/pal_rose_primary</item>
+        <item name="colorOnPrimary">@color/pal_rose_on_primary</item>
+        <item name="colorPrimaryContainer">@color/pal_rose_primary_container</item>
+        <item name="colorOnPrimaryContainer">@color/pal_rose_on_primary_container</item>
+        <item name="colorSecondary">@color/pal_rose_secondary</item>
+        <item name="colorOnSecondary">@color/pal_rose_on_secondary</item>
+        <item name="colorSecondaryContainer">@color/pal_rose_secondary_container</item>
+        <item name="colorOnSecondaryContainer">@color/pal_rose_on_secondary_container</item>
+        <item name="colorSurface">@color/pal_rose_surface</item>
+        <item name="colorOnSurface">@color/pal_rose_on_surface</item>
+        <item name="colorSurfaceVariant">@color/pal_rose_surface_variant</item>
+        <item name="colorOnSurfaceVariant">@color/pal_rose_on_surface_variant</item>
+        <item name="colorSurfaceContainerLowest">@color/pal_rose_surface_lowest</item>
+        <item name="colorSurfaceContainerLow">@color/pal_rose_surface_low</item>
+        <item name="colorSurfaceContainer">@color/pal_rose_surface_container</item>
+        <item name="colorSurfaceContainerHigh">@color/pal_rose_surface_high</item>
+        <item name="colorSurfaceContainerHighest">@color/pal_rose_surface_highest</item>
+        <item name="colorSurfaceDim">@color/pal_rose_surface_dim</item>
+        <item name="colorSurfaceBright">@color/pal_rose_surface_bright</item>
+        <item name="colorOutline">@color/pal_rose_outline</item>
+        <item name="colorOutlineVariant">@color/pal_rose_outline_variant</item>
+        <item name="colorSurfaceInverse">@color/pal_rose_inverse_surface</item>
+        <item name="colorOnSurfaceInverse">@color/pal_rose_inverse_on_surface</item>
+        <item name="colorControlHighlight">@color/pal_rose_ripple</item>
+        <item name="colorError">@color/expense</item>
+        <item name="android:colorBackground">@color/pal_rose_surface</item>
+        <item name="android:statusBarColor">@color/pal_rose_surface</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">?attr/isLightTheme</item>
+    </style>
+
+    <!-- 底部导航底图 -->
+    <style name="Theme.Jizhang.BottomNav" parent="Theme.Material3.DayNight" />
+
+    <style name="ThemeOverlay.Jizhang.Palette.Teal" parent="">
+        <item name="colorPrimary">@color/pal_teal_primary</item>
+        <item name="colorOnPrimary">@color/pal_teal_on_primary</item>
+        <item name="colorPrimaryContainer">@color/pal_teal_primary_container</item>
+        <item name="colorOnPrimaryContainer">@color/pal_teal_on_primary_container</item>
+        <item name="colorSecondary">@color/pal_teal_secondary</item>
+        <item name="colorOnSecondary">@color/pal_teal_on_secondary</item>
+        <item name="colorSecondaryContainer">@color/pal_teal_secondary_container</item>
+        <item name="colorOnSecondaryContainer">@color/pal_teal_on_secondary_container</item>
+        <item name="colorSurface">@color/pal_teal_surface</item>
+        <item name="colorOnSurface">@color/pal_teal_on_surface</item>
+        <item name="colorSurfaceVariant">@color/pal_teal_surface_variant</item>
+        <item name="colorOnSurfaceVariant">@color/pal_teal_on_surface_variant</item>
+        <item name="colorSurfaceContainerLowest">@color/pal_teal_surface_lowest</item>
+        <item name="colorSurfaceContainerLow">@color/pal_teal_surface_low</item>
+        <item name="colorSurfaceContainer">@color/pal_teal_surface_container</item>
+        <item name="colorSurfaceContainerHigh">@color/pal_teal_surface_high</item>
+        <item name="colorSurfaceContainerHighest">@color/pal_teal_surface_highest</item>
+        <item name="colorSurfaceDim">@color/pal_teal_surface_dim</item>
+        <item name="colorSurfaceBright">@color/pal_teal_surface_bright</item>
+        <item name="colorOutline">@color/pal_teal_outline</item>
+        <item name="colorOutlineVariant">@color/pal_teal_outline_variant</item>
+        <item name="colorSurfaceInverse">@color/pal_teal_inverse_surface</item>
+        <item name="colorOnSurfaceInverse">@color/pal_teal_inverse_on_surface</item>
+        <item name="colorControlHighlight">@color/pal_teal_ripple</item>
+        <item name="colorError">@color/expense</item>
+        <item name="android:colorBackground">@color/pal_teal_surface</item>
+        <item name="android:statusBarColor">@color/pal_teal_surface</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">?attr/isLightTheme</item>
+    </style>
+
+    <style name="ThemeOverlay.Jizhang.Palette.Indigo" parent="">
+        <item name="colorPrimary">@color/pal_indigo_primary</item>
+        <item name="colorOnPrimary">@color/pal_indigo_on_primary</item>
+        <item name="colorPrimaryContainer">@color/pal_indigo_primary_container</item>
+        <item name="colorOnPrimaryContainer">@color/pal_indigo_on_primary_container</item>
+        <item name="colorSecondary">@color/pal_indigo_secondary</item>
+        <item name="colorOnSecondary">@color/pal_indigo_on_secondary</item>
+        <item name="colorSecondaryContainer">@color/pal_indigo_secondary_container</item>
+        <item name="colorOnSecondaryContainer">@color/pal_indigo_on_secondary_container</item>
+        <item name="colorSurface">@color/pal_indigo_surface</item>
+        <item name="colorOnSurface">@color/pal_indigo_on_surface</item>
+        <item name="colorSurfaceVariant">@color/pal_indigo_surface_variant</item>
+        <item name="colorOnSurfaceVariant">@color/pal_indigo_on_surface_variant</item>
+        <item name="colorSurfaceContainerLowest">@color/pal_indigo_surface_lowest</item>
+        <item name="colorSurfaceContainerLow">@color/pal_indigo_surface_low</item>
+        <item name="colorSurfaceContainer">@color/pal_indigo_surface_container</item>
+        <item name="colorSurfaceContainerHigh">@color/pal_indigo_surface_high</item>
+        <item name="colorSurfaceContainerHighest">@color/pal_indigo_surface_highest</item>
+        <item name="colorSurfaceDim">@color/pal_indigo_surface_dim</item>
+        <item name="colorSurfaceBright">@color/pal_indigo_surface_bright</item>
+        <item name="colorOutline">@color/pal_indigo_outline</item>
+        <item name="colorOutlineVariant">@color/pal_indigo_outline_variant</item>
+        <item name="colorSurfaceInverse">@color/pal_indigo_inverse_surface</item>
+        <item name="colorOnSurfaceInverse">@color/pal_indigo_inverse_on_surface</item>
+        <item name="colorControlHighlight">@color/pal_indigo_ripple</item>
+        <item name="colorError">@color/expense</item>
+        <item name="android:colorBackground">@color/pal_indigo_surface</item>
+        <item name="android:statusBarColor">@color/pal_indigo_surface</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">?attr/isLightTheme</item>
+    </style>
+
+    <style name="ThemeOverlay.Jizhang.Palette.Clay" parent="">
+        <item name="colorPrimary">@color/pal_clay_primary</item>
+        <item name="colorOnPrimary">@color/pal_clay_on_primary</item>
+        <item name="colorPrimaryContainer">@color/pal_clay_primary_container</item>
+        <item name="colorOnPrimaryContainer">@color/pal_clay_on_primary_container</item>
+        <item name="colorSecondary">@color/pal_clay_secondary</item>
+        <item name="colorOnSecondary">@color/pal_clay_on_secondary</item>
+        <item name="colorSecondaryContainer">@color/pal_clay_secondary_container</item>
+        <item name="colorOnSecondaryContainer">@color/pal_clay_on_secondary_container</item>
+        <item name="colorSurface">@color/pal_clay_surface</item>
+        <item name="colorOnSurface">@color/pal_clay_on_surface</item>
+        <item name="colorSurfaceVariant">@color/pal_clay_surface_variant</item>
+        <item name="colorOnSurfaceVariant">@color/pal_clay_on_surface_variant</item>
+        <item name="colorSurfaceContainerLowest">@color/pal_clay_surface_lowest</item>
+        <item name="colorSurfaceContainerLow">@color/pal_clay_surface_low</item>
+        <item name="colorSurfaceContainer">@color/pal_clay_surface_container</item>
+        <item name="colorSurfaceContainerHigh">@color/pal_clay_surface_high</item>
+        <item name="colorSurfaceContainerHighest">@color/pal_clay_surface_highest</item>
+        <item name="colorSurfaceDim">@color/pal_clay_surface_dim</item>
+        <item name="colorSurfaceBright">@color/pal_clay_surface_bright</item>
+        <item name="colorOutline">@color/pal_clay_outline</item>
+        <item name="colorOutlineVariant">@color/pal_clay_outline_variant</item>
+        <item name="colorSurfaceInverse">@color/pal_clay_inverse_surface</item>
+        <item name="colorOnSurfaceInverse">@color/pal_clay_inverse_on_surface</item>
+        <item name="colorControlHighlight">@color/pal_clay_ripple</item>
+        <item name="colorError">@color/expense</item>
+        <item name="android:colorBackground">@color/pal_clay_surface</item>
+        <item name="android:statusBarColor">@color/pal_clay_surface</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">?attr/isLightTheme</item>
+    </style>
+
+</resources>

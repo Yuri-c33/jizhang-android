@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- 圆角卡片 -->
+    <style name="Widget.Jizhang.Card" parent="Widget.Material3.CardView.Elevated">
+        <item name="cardCornerRadius">?attr/cardCornerRadiusStyle</item>
+        <item name="cardElevation">0dp</item>
+        <item name="cardBackgroundColor">?attr/jizhangCardBackgroundColor</item>
+        <item name="strokeWidth">?attr/jizhangCardStrokeWidth</item>
+        <item name="strokeColor">?attr/jizhangCardStrokeColor</item>
+        <item name="contentPadding">?attr/jizhangCardContentPadding</item>
+        <item name="cardPreventCornerOverlap">false</item>
+        <item name="cardUseCompatPadding">false</item>
+    </style>
+
+    <!-- 页面标题 -->
+    <style name="TextAppearance.Jizhang.Title" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:letterSpacing">0</item>
+    </style>
+
+    <!-- 金额大字 -->
+    <style name="TextAppearance.Jizhang.Amount" parent="TextAppearance.Material3.HeadlineMedium">
+        <item name="android:textStyle">normal</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:letterSpacing">0</item>
+    </style>
+
+    <!-- 记一笔页面的金额：整页视觉焦点，比列表里的金额更大更轻 -->
+    <style name="TextAppearance.Jizhang.AmountDisplay" parent="TextAppearance.Material3.DisplaySmall">
+        <item name="android:textSize">44sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="android:textColor">?attr/colorOnSurface</item>
+    </style>
+
+    <!-- 卡片内的指标名称 -->
+    <style name="TextAppearance.Jizhang.MetricLabel" parent="TextAppearance.Material3.LabelMedium">
+        <item name="android:textColor">?attr/colorOnSurfaceVariant</item>
+        <item name="android:letterSpacing">0</item>
+    </style>
+
+    <!-- 卡片内的指标数值 -->
+    <style name="TextAppearance.Jizhang.MetricValue" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:letterSpacing">0</item>
+    </style>
+
+    <!-- 列表主文本 -->
+    <style name="TextAppearance.Jizhang.ItemTitle" parent="TextAppearance.Material3.BodyLarge">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="TextAppearance.Jizhang.ItemSub" parent="TextAppearance.Material3.BodySmall">
+        <item name="android:textColor">?attr/colorOnSurfaceVariant</item>
+        <item name="android:lineSpacingExtra">2dp</item>
+    </style>
+
+    <!-- 设置项标题 -->
+    <style name="TextAppearance.Jizhang.SettingTitle" parent="TextAppearance.Material3.BodyLarge">
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
+    <style name="TextAppearance.Jizhang.SectionHeader" parent="TextAppearance.Material3.LabelLarge">
+        <item name="android:textColor">?attr/colorOnSurfaceVariant</item>
+        <item name="android:letterSpacing">0.02</item>
+    </style>
+
+    <!-- 设置页分组标题：放在卡片外，作为一组的说明 -->
+    <style name="Widget.Jizhang.SettingsGroupTitle" parent="">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <!-- 与卡片内的文字左对齐：卡片左右外边距 + 卡片内行留白。 -->
+        <item name="android:layout_marginHorizontal">?attr/jizhangSettingsCardMarginHorizontal</item>
+        <item name="android:paddingHorizontal">?attr/jizhangSettingsRowPadding</item>
+        <item name="android:paddingTop">?attr/jizhangSectionHeaderPaddingTop</item>
+        <item name="android:paddingBottom">?attr/jizhangSectionHeaderPaddingBottom</item>
+        <item name="android:textAppearance">@style/TextAppearance.Jizhang.SectionHeader</item>
+    </style>
+
+    <!--
+        设置页分组卡片：Google 设置页那种「大圆角白色卡片 + 页面底色」的结构。
+        卡片必须比页面底色更亮，因此用 colorSurfaceContainerLowest。
+    -->
+    <style name="Widget.Jizhang.SettingsCard" parent="Widget.Material3.CardView.Filled">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginHorizontal">?attr/jizhangSettingsCardMarginHorizontal</item>
+        <item name="cardBackgroundColor">?attr/jizhangSettingsCardBackground</item>
+        <item name="cardCornerRadius">?attr/jizhangSettingsCardCornerRadius</item>
+        <item name="cardElevation">0dp</item>
+        <item name="strokeWidth">?attr/jizhangCardStrokeWidth</item>
+        <item name="strokeColor">?attr/jizhangCardStrokeColor</item>
+        <item name="cardPreventCornerOverlap">false</item>
+        <item name="cardUseCompatPadding">false</item>
+    </style>
+
+</resources>

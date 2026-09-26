@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+        标记某个页面根视图已经自行处理了悬浮底栏的底部留白，
+        MainActivity 的通用递归 padding 遇到该标记时不再叠加，
+        避免同一份底栏高度被记两次。
+    -->
+    <item name="tag_explicit_bottom_inset" type="id" />
+</resources>

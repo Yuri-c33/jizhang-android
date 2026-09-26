@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    MD3 配色方案（深色）。
+
+    这里是 values/palette_colors.xml 的深色版本：资源名一致，仅替换色值。
+    深色下卡片依然比页面底色略亮，保证「卡片浮起」的层次不会消失。
+-->
+<resources>
+
+    <!-- 靛紫 -->
+    <color name="pal_purple_surface">#FF141218</color>
+    <color name="pal_purple_on_surface">#FFE6E0E9</color>
+    <color name="pal_purple_surface_variant">#FF49454F</color>
+    <color name="pal_purple_on_surface_variant">#FFCAC4D0</color>
+    <color name="pal_purple_surface_lowest">#FF1E1B22</color>
+    <color name="pal_purple_surface_low">#FF1D1B20</color>
+    <color name="pal_purple_surface_container">#FF211F26</color>
+    <color name="pal_purple_surface_high">#FF2B2930</color>
+    <color name="pal_purple_surface_highest">#FF36343B</color>
+    <color name="pal_purple_surface_dim">#FF141218</color>
+    <color name="pal_purple_surface_bright">#FF3B383E</color>
+    <color name="pal_purple_primary">#FFD0BCFF</color>
+    <color name="pal_purple_on_primary">#FF381E72</color>
+    <color name="pal_purple_primary_container">#FF4F378B</color>
+    <color name="pal_purple_on_primary_container">#FFEADDFF</color>
+    <color name="pal_purple_secondary">#FFCCC2DC</color>
+    <color name="pal_purple_on_secondary">#FF332D41</color>
+    <color name="pal_purple_secondary_container">#FF4A4458</color>
+    <color name="pal_purple_on_secondary_container">#FFE8DEF8</color>
+    <color name="pal_purple_outline">#FF938F99</color>
+    <color name="pal_purple_outline_variant">#FF49454F</color>
+    <color name="pal_purple_inverse_surface">#FFE6E0E9</color>
+    <color name="pal_purple_inverse_on_surface">#FF322F35</color>
+    <color name="pal_purple_ripple">#33D0BCFF</color>
+
+    <!-- 暖沙 -->
+    <color name="pal_sand_surface">#FF17130E</color>
+    <color name="pal_sand_on_surface">#FFECE1D4</color>
+    <color name="pal_sand_surface_variant">#FF4E4539</color>
+    <color name="pal_sand_on_surface_variant">#FFD1C5B4</color>
+    <color name="pal_sand_surface_lowest">#FF241E16</color>
+    <color name="pal_sand_surface_low">#FF211B14</color>
+    <color name="pal_sand_surface_container">#FF251E17</color>
+    <color name="pal_sand_surface_high">#FF302820</color>
+    <color name="pal_sand_surface_highest">#FF3B332A</color>
+    <color name="pal_sand_surface_dim">#FF17130E</color>
+    <color name="pal_sand_surface_bright">#FF3F3830</color>
+    <color name="pal_sand_primary">#FFE9C16A</color>
+    <color name="pal_sand_on_primary">#FF422C00</color>
+    <color name="pal_sand_primary_container">#FF5E4200</color>
+    <color name="pal_sand_on_primary_container">#FFFFDF9E</color>
+    <color name="pal_sand_secondary">#FFD8C3A0</color>
+    <color name="pal_sand_on_secondary">#FF3B2F16</color>
+    <color name="pal_sand_secondary_container">#FF52462A</color>
+    <color name="pal_sand_on_secondary_container">#FFF5DFBC</color>
+    <color name="pal_sand_outline">#FF9C8F7E</color>
+    <color name="pal_sand_outline_variant">#FF4E4539</color>
+    <color name="pal_sand_inverse_surface">#FFECE1D4</color>
+    <color name="pal_sand_inverse_on_surface">#FF362F28</color>
+    <color name="pal_sand_ripple">#33E9C16A</color>
+
+    <!-- 湖蓝 -->
+    <color name="pal_blue_surface">#FF111318</color>
+    <color name="pal_blue_on_surface">#FFE2E2E9</color>
+    <color name="pal_blue_surface_variant">#FF44474E</color>
+    <color name="pal_blue_on_surface_variant">#FFC4C6D0</color>
+    <color name="pal_blue_surface_lowest">#FF1B1E24</color>
+    <color name="pal_blue_surface_low">#FF191C20</color>
+    <color name="pal_blue_surface_container">#FF1D2024</color>
+    <color name="pal_blue_surface_high">#FF272A2F</color>
+    <color name="pal_blue_surface_highest">#FF32353A</color>
+    <color name="pal_blue_surface_dim">#FF111318</color>
+    <color name="pal_blue_surface_bright">#FF37393E</color>
+    <color name="pal_blue_primary">#FFA8C7FA</color>
+    <color name="pal_blue_on_primary">#FF0A305F</color>
+    <color name="pal_blue_primary_container">#FF0842A0</color>
+    <color name="pal_blue_on_primary_container">#FFD3E3FD</color>
+    <color name="pal_blue_secondary">#FFBEC6DC</color>
+    <color name="pal_blue_on_secondary">#FF283141</color>
+    <color name="pal_blue_secondary_container">#FF3E4759</color>
+    <color name="pal_blue_on_secondary_container">#FFDAE2F9</color>
+    <color name="pal_blue_outline">#FF8E9099</color>
+    <color name="pal_blue_outline_variant">#FF44474E</color>
+    <color name="pal_blue_inverse_surface">#FFE2E2E9</color>
+    <color name="pal_blue_inverse_on_surface">#FF2F3033</color>
+    <color name="pal_blue_ripple">#33A8C7FA</color>
+
+    <!-- 松绿 -->
+    <color name="pal_green_surface">#FF12140F</color>
+    <color name="pal_green_on_surface">#FFE1E4DB</color>
+    <color name="pal_green_surface_variant">#FF43483F</color>
+    <color name="pal_green_on_surface_variant">#FFC3C8BD</color>
+    <color name="pal_green_surface_lowest">#FF1C1F1A</color>
+    <color name="pal_green_surface_low">#FF191D17</color>
+    <color name="pal_green_surface_container">#FF1D201B</color>
+    <color name="pal_green_surface_high">#FF272B25</color>
+    <color name="pal_green_surface_highest">#FF323630</color>
+    <color name="pal_green_surface_dim">#FF12140F</color>
+    <color name="pal_green_surface_bright">#FF373B34</color>
+    <color name="pal_green_primary">#FF9CD67D</color>
+    <color name="pal_green_on_primary">#FF113800</color>
+    <color name="pal_green_primary_container">#FF1F5203</color>
+    <color name="pal_green_on_primary_container">#FFB7F397</color>
+    <color name="pal_green_secondary">#FFBCCBB0</color>
+    <color name="pal_green_on_secondary">#FF273421</color>
+    <color name="pal_green_secondary_container">#FF3E4A36</color>
+    <color name="pal_green_on_secondary_container">#FFD9E7CB</color>
+    <color name="pal_green_outline">#FF8D9287</color>
+    <color name="pal_green_outline_variant">#FF43483F</color>
+    <color name="pal_green_inverse_surface">#FFE1E4DB</color>
+    <color name="pal_green_inverse_on_surface">#FF2E322C</color>
+    <color name="pal_green_ripple">#339CD67D</color>
+
+    <!-- 绯樱 -->
+    <color name="pal_rose_surface">#FF171214</color>
+    <color name="pal_rose_on_surface">#FFECE0E2</color>
+    <color name="pal_rose_surface_variant">#FF4E4446</color>
+    <color name="pal_rose_on_surface_variant">#FFD1C3C5</color>
+    <color name="pal_rose_surface_lowest">#FF221B1D</color>
+    <color name="pal_rose_surface_low">#FF201A1B</color>
+    <color name="pal_rose_surface_container">#FF241D1F</color>
+    <color name="pal_rose_surface_high">#FF2F2729</color>
+    <color name="pal_rose_surface_highest">#FF3A3234</color>
+    <color name="pal_rose_surface_dim">#FF171214</color>
+    <color name="pal_rose_surface_bright">#FF3E3638</color>
+    <color name="pal_rose_primary">#FFEFB8C8</color>
+    <color name="pal_rose_on_primary">#FF48212D</color>
+    <color name="pal_rose_primary_container">#FF633B48</color>
+    <color name="pal_rose_on_primary_container">#FFFFD9E0</color>
+    <color name="pal_rose_secondary">#FFE1BDC2</color>
+    <color name="pal_rose_on_secondary">#FF402A2F</color>
+    <color name="pal_rose_secondary_container">#FF5A3F44</color>
+    <color name="pal_rose_on_secondary_container">#FFFADADF</color>
+    <color name="pal_rose_outline">#FF9A8E90</color>
+    <color name="pal_rose_outline_variant">#FF4E4446</color>
+    <color name="pal_rose_inverse_surface">#FFECE0E2</color>
+    <color name="pal_rose_inverse_on_surface">#FF352F30</color>
+    <color name="pal_rose_ripple">#33EFB8C8</color>
+
+    <!-- 青瓷 -->
+    <color name="pal_teal_surface">#FF0E1414</color>
+    <color name="pal_teal_on_surface">#FFDEE4E3</color>
+    <color name="pal_teal_surface_variant">#FF3F4949</color>
+    <color name="pal_teal_on_surface_variant">#FFBEC9C8</color>
+    <color name="pal_teal_surface_lowest">#FF191F1F</color>
+    <color name="pal_teal_surface_low">#FF171D1D</color>
+    <color name="pal_teal_surface_container">#FF1A2121</color>
+    <color name="pal_teal_surface_high">#FF252B2B</color>
+    <color name="pal_teal_surface_highest">#FF303636</color>
+    <color name="pal_teal_surface_dim">#FF0E1414</color>
+    <color name="pal_teal_surface_bright">#FF343A3A</color>
+    <color name="pal_teal_primary">#FF80D5D4</color>
+    <color name="pal_teal_on_primary">#FF003737</color>
+    <color name="pal_teal_primary_container">#FF004F4F</color>
+    <color name="pal_teal_on_primary_container">#FF9CF1F0</color>
+    <color name="pal_teal_secondary">#FFB0CCCB</color>
+    <color name="pal_teal_on_secondary">#FF1B3534</color>
+    <color name="pal_teal_secondary_container">#FF324B4B</color>
+    <color name="pal_teal_on_secondary_container">#FFCCE8E7</color>
+    <color name="pal_teal_outline">#FF899392</color>
+    <color name="pal_teal_outline_variant">#FF3F4949</color>
+    <color name="pal_teal_inverse_surface">#FFDEE4E3</color>
+    <color name="pal_teal_inverse_on_surface">#FF2D3131</color>
+    <color name="pal_teal_ripple">#3380D5D4</color>
+
+    <!-- 星夜 -->
+    <color name="pal_indigo_surface">#FF121318</color>
+    <color name="pal_indigo_on_surface">#FFE3E1E9</color>
+    <color name="pal_indigo_surface_variant">#FF45464F</color>
+    <color name="pal_indigo_on_surface_variant">#FFC6C5D0</color>
+    <color name="pal_indigo_surface_lowest">#FF1D1E24</color>
+    <color name="pal_indigo_surface_low">#FF1A1B21</color>
+    <color name="pal_indigo_surface_container">#FF1E1F25</color>
+    <color name="pal_indigo_surface_high">#FF292A30</color>
+    <color name="pal_indigo_surface_highest">#FF34343B</color>
+    <color name="pal_indigo_surface_dim">#FF121318</color>
+    <color name="pal_indigo_surface_bright">#FF383940</color>
+    <color name="pal_indigo_primary">#FFBAC3FF</color>
+    <color name="pal_indigo_on_primary">#FF08218A</color>
+    <color name="pal_indigo_primary_container">#FF26379A</color>
+    <color name="pal_indigo_on_primary_container">#FFDFE0FF</color>
+    <color name="pal_indigo_secondary">#FFC4C5DD</color>
+    <color name="pal_indigo_on_secondary">#FF2D2F42</color>
+    <color name="pal_indigo_secondary_container">#FF434559</color>
+    <color name="pal_indigo_on_secondary_container">#FFE0E1F9</color>
+    <color name="pal_indigo_outline">#FF90909A</color>
+    <color name="pal_indigo_outline_variant">#FF45464F</color>
+    <color name="pal_indigo_inverse_surface">#FFE3E1E9</color>
+    <color name="pal_indigo_inverse_on_surface">#FF2F3038</color>
+    <color name="pal_indigo_ripple">#33BAC3FF</color>
+
+    <!-- 陶土 -->
+    <color name="pal_clay_surface">#FF1A110F</color>
+    <color name="pal_clay_on_surface">#FFF1DFDA</color>
+    <color name="pal_clay_surface_variant">#FF53433F</color>
+    <color name="pal_clay_on_surface_variant">#FFD8C2BC</color>
+    <color name="pal_clay_surface_lowest">#FF2A1D1A</color>
+    <color name="pal_clay_surface_low">#FF221614</color>
+    <color name="pal_clay_surface_container">#FF261A17</color>
+    <color name="pal_clay_surface_high">#FF322521</color>
+    <color name="pal_clay_surface_highest">#FF3D302C</color>
+    <color name="pal_clay_surface_dim">#FF1A110F</color>
+    <color name="pal_clay_surface_bright">#FF453733</color>
+    <color name="pal_clay_primary">#FFFFB59E</color>
+    <color name="pal_clay_on_primary">#FF55200F</color>
+    <color name="pal_clay_primary_container">#FF733521</color>
+    <color name="pal_clay_on_primary_container">#FFFFDBD0</color>
+    <color name="pal_clay_secondary">#FFE7BEB2</color>
+    <color name="pal_clay_on_secondary">#FF442A23</color>
+    <color name="pal_clay_secondary_container">#FF5D4037</color>
+    <color name="pal_clay_on_secondary_container">#FFFFDBD0</color>
+    <color name="pal_clay_outline">#FFA08C86</color>
+    <color name="pal_clay_outline_variant">#FF53433F</color>
+    <color name="pal_clay_inverse_surface">#FFF1DFDA</color>
+    <color name="pal_clay_inverse_on_surface">#FF392E2B</color>
+    <color name="pal_clay_ripple">#33FFB59E</color>
+
+</resources>
